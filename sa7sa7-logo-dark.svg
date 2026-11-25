@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 150" role="img" aria-labelledby="title desc">
+  <title id="title">صحصح</title>
+  <desc id="desc">إدارة أسهل — مبيعات أذكى</desc>
+  <defs>
+    <linearGradient id="champagne" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8E2D8"/><stop offset=".48" stop-color="#C5A46D"/><stop offset="1" stop-color="#C5A46D"/></linearGradient>
+  </defs>
+  <g transform="rotate(-11 82 72)">
+    <path d="M49 13h57a8 8 0 0 1 8 8v83l-9-7-9 7-9-7-9 7-9-7-9 7-9-7V21a8 8 0 0 1 8-8Z" fill="#F6F4EF" stroke="#C5A46D" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M61 34h39M61 44h31M61 54h35" fill="none" stroke="#263B59" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <path d="M10 94c17-30 39-51 61-49 20 2 31 26 51 28 20 2 32-14 19-30 25 11 29 34 9 49-23 17-47-5-68-14-23-10-44 3-50 25-5 18 11 28 29 20 24-10 44-28 67-17-19 20-43 35-70 39-30 4-57-13-48-39Z" fill="url(#champagne)"/>
+  <path d="M20 92c17-25 35-39 51-40 9 0 16 4 22 10-15-5-30 0-42 12-11 11-20 24-23 39-7-4-11-11-8-21Z" fill="#FFFFFF" opacity=".7"/>
+  <path d="M164 26v98" stroke="#C5A46D" stroke-width="1.5"/>
+  <text x="303" y="76" text-anchor="middle" direction="rtl" unicode-bidi="plaintext" fill="#FFFFFF" font-family="Alexandria, 'Noto Sans Arabic', Tahoma, sans-serif" font-size="59" font-weight="700">صحصح</text>
+  <path d="M190 105h26m188 0h26" stroke="#C5A46D" stroke-width="1.5"/>
+  <text x="310" y="111" text-anchor="middle" direction="rtl" unicode-bidi="plaintext" fill="#E8E2D8" font-family="Alexandria, 'Noto Sans Arabic', Tahoma, sans-serif" font-size="16" font-weight="500">إدارة أسهل — مبيعات أذكى</text>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" role="img" aria-labelledby="title">
+  <title id="title">صحصح</title>
+  <defs><linearGradient id="champagne" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8E2D8"/><stop offset=".5" stop-color="#C5A46D"/><stop offset="1" stop-color="#C5A46D"/></linearGradient></defs>
+  <g transform="rotate(-11 76 72)">
+    <path d="M46 12h58a9 9 0 0 1 9 9v86l-9-7-9 7-9-7-9 7-9-7-9 7-9-7V21a9 9 0 0 1 9-9Z" fill="#FFFFFF" stroke="#E8E2D8" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M59 34h41M59 45h33M59 56h36" fill="none" stroke="#172B4D" stroke-width="5.5" stroke-linecap="round"/>
+  </g>
+  <path d="M8 95c19-34 42-53 64-50 20 2 31 26 51 28 20 2 33-14 19-31 26 12 30 35 9 50-23 17-48-5-69-14-23-10-45 3-51 25-5 18 11 29 30 21 25-10 45-29 69-17-20 20-44 36-72 40-31 4-58-14-50-40Z" fill="url(#champagne)"/>
+  <path d="M19 92c18-25 36-40 53-41 9 0 17 4 23 10-16-5-31 0-43 12-11 11-20 25-24 40-7-4-11-12-9-21Z" fill="#F6F4EF" opacity=".72"/>
+</svg>

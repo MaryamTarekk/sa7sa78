@@ -1,0 +1,4865 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0b1526" />
+    <meta
+      name="description"
+      content="صحصح نظام إدارة أعمال متكامل يجمع المبيعات والمخزون والحسابات والعملاء والموظفين في منصة واحدة."
+    />
+    <title>صحصح — نظام إدارة أعمال متكامل</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --n1: #0b1526;
+        --n2: #12213a;
+        --n3: #1a2e4f;
+        --g: #c5a46d;
+        --g2: #e8d3a2;
+        --tx: #eef1f8;
+        --mu: #9fadc7;
+        --ln: #ffffff1a;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 84px);
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: var(--n1);
+        color: var(--tx);
+        font:
+          300 16px/1.95 Alexandria,
+          system-ui,
+          sans-serif;
+        overflow-x: clip;
+      }
+      body:before {
+        content: "";
+        position: fixed;
+        inset: 0 0 auto;
+        height: env(safe-area-inset-top, 0px);
+        background: var(--n1);
+        z-index: 50;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button {
+        font: inherit;
+        color: inherit;
+      }
+      .w {
+        width: min(1220px, calc(100% - 40px));
+        margin: auto;
+      }
+      :focus-visible {
+        outline: 2px solid var(--g);
+        outline-offset: 3px;
+        border-radius: 8px;
+      }
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-weight: 800;
+        line-height: 1.3;
+      }
+      h2 {
+        font-size: clamp(30px, 4.4vw, 52px);
+        max-width: 19ch;
+        margin-bottom: 16px;
+      }
+      .sb {
+        color: var(--mu);
+        max-width: 56ch;
+        font-size: 17px;
+        margin: 0 0 48px;
+      }
+      section {
+        padding: 100px 0;
+        position: relative;
+      }
+      .eb {
+        color: var(--g);
+        font-size: 14px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+      .eb:before {
+        content: "";
+        width: 34px;
+        height: 1px;
+        background: var(--g);
+      }
+      /* nav */
+      header {
+        position: sticky;
+        top: env(safe-area-inset-top, 0px);
+        z-index: 40;
+        transition:
+          background 0.35s,
+          border-color 0.35s,
+          box-shadow 0.35s;
+        border-bottom: 1px solid transparent;
+      }
+      header.sc {
+        background: #0b1526e6;
+        backdrop-filter: blur(16px);
+        border-color: var(--ln);
+        box-shadow: 0 10px 40px #0007;
+      }
+      .nv {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        height: 78px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+      }
+      .logo img {
+        display: block;
+        width: 132px;
+        height: 46px;
+        object-fit: contain;
+      }
+      .lk {
+        display: flex;
+        gap: 26px;
+        font-size: 14px;
+        color: var(--mu);
+      }
+      .lk a {
+        position: relative;
+        transition: color 0.25s;
+      }
+      .lk a:after {
+        content: "";
+        position: absolute;
+        inset: auto 0 -4px;
+        height: 1px;
+        background: var(--g);
+        transform: scaleX(0);
+        transition: transform 0.3s;
+      }
+      .lk a:hover {
+        color: var(--g2);
+      }
+      .lk a:hover:after {
+        transform: scaleX(1);
+      }
+      .ac {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 24px;
+        border-radius: 14px;
+        font-weight: 700;
+        font-size: 14px;
+        border: 1px solid var(--g);
+        cursor: pointer;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s,
+          background 0.25s;
+        white-space: nowrap;
+      }
+      .btn:hover {
+        transform: translateY(-3px);
+      }
+      .bg {
+        background: linear-gradient(120deg, var(--g2), var(--g));
+        color: var(--n1);
+        box-shadow: 0 12px 32px #c5a46d33;
+      }
+      .bg:hover {
+        box-shadow: 0 16px 40px #c5a46d55;
+      }
+      .bo {
+        background: transparent;
+        color: var(--g2);
+      }
+      .bo:hover {
+        background: #c5a46d1a;
+      }
+      .mb {
+        display: none;
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        border: 1px solid var(--ln);
+        background: none;
+        cursor: pointer;
+        font-size: 20px;
+      }
+      /* hero */
+      .hero {
+        padding: 70px 0 110px;
+        overflow: hidden;
+        isolation: isolate;
+      }
+      .hero:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background:
+          radial-gradient(640px 460px at 18% 30%, #c5a46d26, transparent 70%),
+          radial-gradient(720px 520px at 85% 60%, #2b4f8a44, transparent 70%);
+      }
+      .hg {
+        display: grid;
+        grid-template-columns: 1fr 1.15fr;
+        gap: 40px;
+        align-items: center;
+      }
+      .hero h1 {
+        font-size: clamp(42px, 6.2vw, 76px);
+        letter-spacing: -1px;
+        margin-bottom: 22px;
+      }
+      .hero h1 em {
+        font-style: normal;
+        background: linear-gradient(120deg, var(--g2), var(--g));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .lead {
+        color: var(--mu);
+        font-size: 18px;
+        max-width: 48ch;
+        margin: 0 0 32px;
+      }
+      .row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .bdg {
+        display: inline-flex;
+        gap: 10px;
+        align-items: center;
+        padding: 6px 16px;
+        border: 1px solid var(--ln);
+        border-radius: 99px;
+        font-size: 13px;
+        color: var(--g2);
+        margin-bottom: 22px;
+        background: #ffffff08;
+      }
+      @keyframes up {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+      }
+      .hero .bdg,
+      .hero h1,
+      .hero .lead,
+      .hero .row {
+        animation: up 0.9s cubic-bezier(0.2, 0.9, 0.2, 1) backwards;
+      }
+      .hero h1 {
+        animation-delay: 0.1s;
+      }
+      .hero .lead {
+        animation-delay: 0.25s;
+      }
+      .hero .row {
+        animation-delay: 0.4s;
+      }
+      .stage {
+        position: relative;
+        height: 520px;
+        animation: up 1.1s 0.3s cubic-bezier(0.2, 0.9, 0.2, 1) backwards;
+      }
+      .win {
+        position: absolute;
+        background: linear-gradient(160deg, #17294a, #0f1c34);
+        border: 1px solid #c5a46d40;
+        border-radius: 20px;
+        box-shadow:
+          0 40px 80px -30px #000c,
+          inset 0 1px 0 #ffffff12;
+        overflow: hidden;
+      }
+      .wh {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 11px 16px;
+        border-bottom: 1px solid var(--ln);
+        font-size: 12px;
+        color: var(--mu);
+      }
+      .wh i {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #ffffff26;
+      }
+      .wh span {
+        margin-inline-start: 8px;
+      }
+      .wb {
+        padding: 16px;
+      }
+      .w1 {
+        inset: 0 0 auto 5%;
+        width: min(540px, 92%);
+        height: 330px;
+        /* Hover tilt is applied to the entire window by the pointer handler. */
+      }
+      .hero-screen-img {
+        width: 100%;
+        height: calc(100% - 37px);
+        overflow: hidden;
+        background: #080f1b;
+        position: relative;
+        cursor: zoom-in;
+        border-radius: 0 0 16px 16px;
+        transform-style: preserve-3d;
+        transition:
+          transform 0.2s ease-out,
+          box-shadow 0.2s ease-out;
+      }
+      .hero-screen-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+        transition: transform 0.4s ease;
+      }
+      .hero-screen-img:hover img {
+        transform: scale(1.03);
+      }
+      .hero-screen-img:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          transparent 65%,
+          rgba(11, 21, 38, 0.75) 100%
+        );
+        pointer-events: none;
+      }
+      .w2 {
+        inset: auto auto 6% 0;
+        width: 260px;
+      }
+      .w3 {
+        inset: 6% 0 auto auto;
+        width: 200px;
+        display: none;
+      }
+      .w4 {
+        inset: auto 4% 0 auto;
+        width: 250px;
+      }
+      @keyframes fa {
+        to {
+          transform: translateY(-14px);
+        }
+      }
+      .pos {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 14px;
+      }
+      .pg {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+      .pg div {
+        aspect-ratio: 1;
+        border-radius: 12px;
+        background: linear-gradient(145deg, #ffffff12, #ffffff06);
+        border: 1px solid var(--ln);
+        display: grid;
+        place-items: center;
+        color: var(--g);
+        font-size: 18px;
+      }
+      .sk {
+        height: 8px;
+        border-radius: 6px;
+        background: #ffffff16;
+        margin-bottom: 9px;
+      }
+      .chip {
+        display: inline-block;
+        padding: 2px 12px;
+        border-radius: 99px;
+        border: 1px solid var(--ln);
+        font-size: 11px;
+        color: var(--mu);
+        margin: 0 0 6px 6px;
+      }
+      .chip.on {
+        border-color: var(--g);
+        color: var(--g2);
+      }
+      .pay {
+        margin-top: 12px;
+        padding: 9px;
+        text-align: center;
+        border-radius: 11px;
+        background: linear-gradient(120deg, var(--g2), var(--g));
+        color: var(--n1);
+        font-weight: 700;
+        font-size: 13px;
+      }
+      .tr {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+        padding: 7px 0;
+        border-bottom: 1px solid var(--ln);
+      }
+      .tr:last-child {
+        border: 0;
+      }
+      .tg {
+        width: 30px;
+        height: 17px;
+        border-radius: 99px;
+        background: #ffffff1c;
+        position: relative;
+      }
+      .tg:after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: var(--mu);
+        transition: 0.3s;
+      }
+      .tg.on {
+        background: var(--g);
+      }
+      .tg.on:after {
+        right: 15px;
+        background: var(--n1);
+      }
+      /* ecosystem */
+      .pw {
+        background: var(--n2);
+        border-block: 1px solid var(--ln);
+      }
+      .eco {
+        position: relative;
+        height: 560px;
+        margin-top: 10px;
+      }
+      .eco svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .eco line {
+        stroke: #c5a46d55;
+        stroke-width: 0.25;
+        stroke-dasharray: 1.2 1.2;
+        animation: fw 3s linear infinite;
+      }
+      .eco line.h {
+        stroke: var(--g2);
+        stroke-width: 0.5;
+      }
+      @keyframes fw {
+        to {
+          stroke-dashoffset: -4.8;
+        }
+      }
+      .hub {
+        position: absolute;
+        inset: 50% auto auto 50%;
+        transform: translate(-50%, -50%);
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        background: radial-gradient(circle, #c5a46d33, #0b1526);
+        border: 1px solid var(--g);
+        font-weight: 800;
+        font-size: 22px;
+        line-height: 1.4;
+        box-shadow: 0 0 80px #c5a46d40;
+        animation: pu 4s ease-in-out infinite;
+      }
+      @keyframes pu {
+        50% {
+          box-shadow: 0 0 120px #c5a46d66;
+        }
+      }
+      .nd {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        padding: 8px 18px;
+        border-radius: 99px;
+        background: var(--n1);
+        border: 1px solid var(--ln);
+        font-size: 13px;
+        white-space: nowrap;
+        cursor: default;
+        transition:
+          border-color 0.3s,
+          color 0.3s,
+          transform 0.3s;
+      }
+      .nd:hover,
+      .nd.h {
+        border-color: var(--g);
+        color: var(--g2);
+        transform: translate(-50%, -50%) scale(1.08);
+      }
+      /* showcase */
+      .sh {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 28px;
+        align-items: start;
+      }
+      .tabs {
+        display: grid;
+        gap: 6px;
+        position: sticky;
+        top: 100px;
+      }
+      .tabs button {
+        text-align: start;
+        padding: 14px 20px;
+        border-radius: 16px;
+        border: 1px solid transparent;
+        background: none;
+        cursor: pointer;
+        font-size: 15px;
+        color: var(--mu);
+        transition: 0.3s;
+        display: flex;
+        justify-content: space-between;
+      }
+      .tabs button:hover {
+        color: var(--tx);
+        background: #ffffff08;
+      }
+      .tabs .on {
+        background: var(--n2);
+        border-color: #c5a46d55;
+        color: var(--g2);
+      }
+      .pnl {
+        border: 1px solid rgba(197, 164, 109, 0.3);
+        border-radius: 28px;
+        background: linear-gradient(165deg, var(--n2), #0b1526);
+        padding: 34px;
+        display: grid;
+        grid-template-columns: 1.05fr 1.35fr;
+        gap: 32px;
+        align-items: center;
+        min-height: 520px;
+        overflow: hidden;
+        box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.6);
+        position: relative;
+      }
+      .pnl.sw > * {
+        animation: up 0.5s cubic-bezier(0.2, 0.9, 0.2, 1) backwards;
+      }
+      .pnl-info {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        text-align: start;
+        z-index: 2;
+      }
+      .pnl-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--g2);
+        background: rgba(197, 164, 109, 0.12);
+        border: 1px solid rgba(197, 164, 109, 0.32);
+        border-radius: 99px;
+        padding: 5px 14px;
+        width: fit-content;
+      }
+      .pnl h3 {
+        font-size: clamp(24px, 2.5vw, 34px);
+        font-weight: 800;
+        color: #ffffff;
+        margin: 0;
+        line-height: 1.25;
+      }
+      .pnl-desc {
+        color: var(--mu);
+        font-size: 16px;
+        margin: 0;
+        line-height: 1.7;
+      }
+      .pnl-list {
+        list-style: none;
+        padding: 0;
+        margin: 6px 0 10px;
+        display: grid;
+        gap: 11px;
+      }
+      .pnl-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 11px;
+        font-size: 15px;
+        color: #e2e8f5;
+        line-height: 1.6;
+      }
+      .pnl-check {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: rgba(197, 164, 109, 0.18);
+        border: 1px solid var(--g);
+        color: var(--g2);
+        display: grid;
+        place-items: center;
+        font-size: 12px;
+        font-weight: 800;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .pnl-actions {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        margin-top: 8px;
+        flex-wrap: wrap;
+      }
+      .pnl-cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 22px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--g), #dfbe82);
+        color: #0b1526;
+        font-weight: 700;
+        font-size: 14px;
+        text-decoration: none;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+        box-shadow: 0 4px 18px rgba(197, 164, 109, 0.35);
+      }
+      .pnl-cta-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(197, 164, 109, 0.5);
+      }
+      .pnl-zoom-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 10px 18px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--ln);
+        color: #eef1f8;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .pnl-zoom-btn:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(197, 164, 109, 0.4);
+        transform: translateY(-2px);
+      }
+      .pnl-screen-wrapper {
+        position: relative;
+        z-index: 1;
+      }
+      .screen-device {
+        position: relative;
+        border-radius: 18px;
+        overflow: hidden;
+        background: #091220;
+        border: 1px solid rgba(197, 164, 109, 0.35);
+        box-shadow:
+          0 24px 50px -12px rgba(0, 0, 0, 0.75),
+          0 0 0 1px rgba(255, 255, 255, 0.05);
+        transition:
+          transform 0.18s ease-out,
+          box-shadow 0.18s ease-out;
+      }
+      .screen-device:hover {
+        transform: translateY(-4px);
+        box-shadow:
+          0 32px 65px -12px rgba(0, 0, 0, 0.85),
+          0 0 35px rgba(197, 164, 109, 0.2);
+      }
+      .screen-mac-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 14px;
+        background: #0f1c32;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 11px;
+        color: var(--mu);
+        user-select: none;
+      }
+      .mac-dots {
+        display: flex;
+        gap: 6px;
+      }
+      .mac-dots .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .mac-dots .dot.red {
+        background: #ff5f56;
+      }
+      .mac-dots .dot.yellow {
+        background: #ffbd2e;
+      }
+      .mac-dots .dot.green {
+        background: #27c93f;
+      }
+      .mac-url {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(0, 0, 0, 0.38);
+        padding: 3px 14px;
+        border-radius: 6px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 11px;
+        color: #9cb2cf;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        direction: ltr;
+      }
+      .screen-live-pill {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 11px;
+        color: #4ade80;
+        font-weight: 500;
+      }
+      .live-blink {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #22c55e;
+        box-shadow: 0 0 8px #22c55e;
+        animation: pulseLive 2s infinite;
+      }
+      @keyframes pulseLive {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.4;
+          transform: scale(0.85);
+        }
+      }
+      .screen-img-container {
+        position: relative;
+        overflow: hidden;
+        cursor: zoom-in;
+        max-height: 380px;
+        aspect-ratio: 16 / 10;
+        background: #080f1b;
+        transform-style: preserve-3d;
+        transition:
+          transform 0.2s ease-out,
+          box-shadow 0.2s ease-out;
+      }
+      .screen-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+        transition: transform 0.4s ease;
+      }
+      .screen-device:hover .screen-img {
+        transform: scale(1.025);
+      }
+      .screen-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(11, 21, 38, 0.55);
+        backdrop-filter: blur(2px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+      }
+      .screen-device:hover .screen-overlay {
+        opacity: 1;
+      }
+      .screen-overlay-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        border-radius: 99px;
+        background: rgba(197, 164, 109, 0.95);
+        color: #0b1526;
+        font-weight: 700;
+        font-size: 13px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+        transform: translateY(6px);
+        transition: transform 0.25s;
+      }
+      .screen-device:hover .screen-overlay-btn {
+        transform: translateY(0);
+      }
+      .screen-footer-badge {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 14px;
+        background: #0a1424;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        font-size: 12px;
+        color: var(--mu);
+      }
+      /* lightbox modal */
+      .screen-lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: rgba(6, 12, 22, 0.92);
+        backdrop-filter: blur(18px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s cubic-bezier(0.2, 0.9, 0.2, 1);
+      }
+      .screen-lightbox.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .lightbox-modal {
+        position: relative;
+        max-width: 1200px;
+        width: 100%;
+        max-height: 92vh;
+        display: flex;
+        flex-direction: column;
+        background: #0d192c;
+        border: 1px solid rgba(197, 164, 109, 0.4);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 40px 90px rgba(0, 0, 0, 0.85);
+        transform: scale(0.95);
+        transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.2, 1);
+      }
+      .screen-lightbox.active .lightbox-modal {
+        transform: scale(1);
+      }
+      .lightbox-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 22px;
+        background: #12213a;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .lightbox-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--tx);
+      }
+      .lightbox-close {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--ln);
+        color: #eef1f8;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        font-size: 18px;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .lightbox-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.05);
+      }
+      .lightbox-body {
+        padding: 0;
+        overflow: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #080f1b;
+        max-height: calc(92vh - 130px);
+      }
+      .lightbox-body img {
+        width: 100%;
+        height: auto;
+        max-height: calc(92vh - 130px);
+        object-fit: contain;
+        display: block;
+      }
+      .lightbox-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 22px;
+        background: #0b1526;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 13px;
+        color: var(--mu);
+      }
+      .soon {
+        font-size: 10px;
+        border: 1px solid var(--g);
+        color: var(--g);
+        border-radius: 99px;
+        padding: 0 8px;
+        margin-inline-start: 8px;
+      }
+      /* flows */
+      .flow-widget {
+        padding: 26px clamp(18px, 4vw, 48px) 32px;
+        border: 1px solid #ffffff20;
+        border-radius: 28px;
+        background: radial-gradient(ellipse at 50% 50%, #32206455, #14213a 65%);
+        overflow: hidden;
+      }
+      .flow-filters {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 24px;
+      }
+      .flow-filter {
+        border: 1px solid #ffffff25;
+        border-radius: 999px;
+        padding: 9px 18px;
+        background: #ffffff08;
+        color: var(--mu);
+        cursor: pointer;
+        font-size: 14px;
+        transition:
+          color 0.22s,
+          background 0.22s,
+          border-color 0.22s,
+          transform 0.22s;
+      }
+      .flow-filter:hover {
+        transform: translateY(-2px);
+        color: var(--tx);
+        border-color: #c5a46d88;
+      }
+      .flow-filter[aria-pressed="true"] {
+        color: var(--n1);
+        border-color: var(--g2);
+        background: linear-gradient(120deg, var(--g2), var(--g));
+        font-weight: 700;
+        box-shadow: 0 8px 24px #c5a46d25;
+      }
+      .flow-roadmap {
+        --route-y: 226px;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(var(--step-count), minmax(0, 1fr));
+        min-height: 452px;
+        direction: rtl;
+        isolation: isolate;
+      }
+      .flow-route-svg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        pointer-events: none;
+      }
+      .flow-route-base,
+      .flow-route-active {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        vector-effect: non-scaling-stroke;
+      }
+      .flow-route-base {
+        stroke: #ffffff1c;
+        stroke-width: 3;
+        stroke-dasharray: 8 11;
+      }
+      .flow-route-active {
+        stroke: var(--g2);
+        stroke-width: 3.5;
+        filter: drop-shadow(0 0 5px #e8d3a277);
+      }
+      .flow-step {
+        position: relative;
+        z-index: 1;
+        height: 452px;
+        min-width: 0;
+      }
+      .flow-step-card {
+        position: absolute;
+        inset-inline: 8px;
+        height: 170px;
+        padding: 18px 17px;
+        border: 1px solid #ffffff1b;
+        border-radius: 17px;
+        background: linear-gradient(145deg, #0b1428f5, #101b32f2);
+        box-shadow: 0 14px 34px #050b1760;
+        direction: rtl;
+        text-align: right;
+        opacity: 0;
+        transform: translateY(9px);
+        animation: flowCardIn 0.6s cubic-bezier(0.22, 1, 0.36, 1)
+          var(--step-delay, 0ms) both paused;
+      }
+      .flow-step.is-top .flow-step-card {
+        top: 0;
+      }
+      .flow-step.is-bottom .flow-step-card {
+        bottom: 0;
+        transform: translateY(-9px);
+      }
+      .flow-step-card:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        width: 1px;
+        height: calc(var(--route-y) - 170px);
+        background: linear-gradient(var(--g2), #c5a46d20);
+        transform: scaleY(0);
+        transform-origin: top;
+        animation: flowStemIn 0.4s cubic-bezier(0.22, 1, 0.36, 1)
+          calc(var(--step-delay, 0ms) + 130ms) both paused;
+      }
+      .flow-step.is-top .flow-step-card:after {
+        top: 100%;
+      }
+      .flow-step.is-bottom .flow-step-card:after {
+        bottom: 100%;
+        transform-origin: bottom;
+        background: linear-gradient(#c5a46d20, var(--g2));
+      }
+      .flow-step-meta {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        color: var(--g2);
+        font-size: 12px;
+        margin-bottom: 8px;
+      }
+      .flow-step-index {
+        font-weight: 700;
+        letter-spacing: 0.06em;
+      }
+      .flow-step-title {
+        margin: 0 0 7px;
+        color: var(--tx);
+        font-size: clamp(15px, 1.25vw, 18px);
+        line-height: 1.55;
+      }
+      .flow-step-desc {
+        margin: 0;
+        color: var(--mu);
+        font-size: 12px;
+        line-height: 1.75;
+      }
+      .flow-step-node {
+        position: absolute;
+        top: var(--route-y);
+        left: 50%;
+        z-index: 2;
+        display: grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        border: 1px solid #e8d3a2a0;
+        border-radius: 50%;
+        color: var(--g2);
+        background: #111a2e;
+        box-shadow:
+          0 0 0 7px #c5a46d12,
+          0 0 26px #c5a46d20;
+        font-size: 12px;
+        font-weight: 700;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.88);
+        animation: flowNodeIn 0.45s cubic-bezier(0.22, 1, 0.36, 1)
+          var(--step-delay, 0ms) both paused;
+      }
+      .flow-roadmap.is-playing .flow-step-card,
+      .flow-roadmap.is-playing .flow-step-node,
+      .flow-roadmap.is-playing .flow-step-card:after {
+        animation-play-state: running;
+      }
+      @keyframes flowCardIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes flowStemIn {
+        to {
+          transform: scaleY(1);
+        }
+      }
+      @keyframes flowNodeIn {
+        to {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+      @media (max-width: 760px) {
+        .flow-widget {
+          padding: 20px 14px 24px;
+          border-radius: 22px;
+        }
+        .flow-filters {
+          gap: 8px;
+          margin-bottom: 12px;
+        }
+        .flow-filter {
+          padding: 8px 13px;
+          font-size: 12px;
+        }
+        .flow-roadmap {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          min-height: 0;
+          padding-inline-start: 2px;
+        }
+        .flow-step {
+          height: auto;
+          min-height: 110px;
+          display: grid;
+          grid-template-columns: 52px 1fr;
+          align-items: center;
+          gap: 12px;
+        }
+        .flow-step-card,
+        .flow-step.is-top .flow-step-card,
+        .flow-step.is-bottom .flow-step-card {
+          position: relative;
+          grid-column: 2;
+          grid-row: 1;
+          inset: auto;
+          height: auto;
+          min-height: 102px;
+          padding: 14px;
+          transform: translateX(-9px);
+        }
+        .flow-step-card:after {
+          display: none;
+        }
+        .flow-step-node {
+          top: 50%;
+          left: 26px;
+          grid-column: 1;
+          grid-row: 1;
+          width: 42px;
+          height: 42px;
+          transform: translate(-50%, -50%) scale(0.88);
+        }
+        .flow-route-base,
+        .flow-route-active {
+          stroke-width: 2.5;
+        }
+        .flow-step-title {
+          font-size: 15px;
+        }
+        .flow-step-desc {
+          font-size: 11px;
+        }
+        .flow-step-card {
+          animation-name: flowCardInMobile;
+        }
+        @keyframes flowCardInMobile {
+          from {
+            opacity: 0;
+            transform: translateX(-9px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+      }
+      /* sectors */
+      .sc2 {
+        display: flex;
+        gap: 12px;
+        height: 500px;
+      }
+      .sx {
+        flex: 1;
+        border: 1px solid var(--ln);
+        border-radius: 24px;
+        background: linear-gradient(170deg, var(--n2), #0b1526);
+        padding: 20px;
+        cursor: pointer;
+        overflow: hidden;
+        transition:
+          flex 0.55s cubic-bezier(0.2, 0.9, 0.2, 1),
+          border-color 0.3s,
+          box-shadow 0.3s,
+          background 0.3s,
+          transform 0.18s ease-out;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-width: 0;
+        text-align: start;
+        position: relative;
+      }
+      .sx:hover {
+        border-color: rgba(197, 164, 109, 0.45);
+      }
+      .sx.on {
+        flex: 5;
+        border-color: var(--g);
+        background: linear-gradient(170deg, #162744, #0b1526);
+        box-shadow:
+          0 24px 55px -15px rgba(0, 0, 0, 0.75),
+          0 0 0 1px rgba(197, 164, 109, 0.25);
+      }
+      .sx-preview {
+        border-radius: 14px;
+        overflow: hidden;
+        background: #080f1c;
+        border: 1px solid rgba(197, 164, 109, 0.3);
+        margin-bottom: 12px;
+        opacity: 0;
+        transform: translateY(-8px);
+        transition:
+          opacity 0.4s ease,
+          transform 0.4s ease;
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+      }
+      .sx.on .sx-preview {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .sx-preview-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 12px;
+        background: #101d33;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 11px;
+        color: var(--mu);
+      }
+      .sx-screen-title {
+        color: #d1dff2;
+        font-weight: 500;
+        font-size: 11px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .sx-zoom-badge {
+        font-size: 11px;
+        color: var(--g2);
+        background: rgba(197, 164, 109, 0.15);
+        border: 1px solid rgba(197, 164, 109, 0.3);
+        padding: 2px 8px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .sx-zoom-badge:hover {
+        background: rgba(197, 164, 109, 0.3);
+        transform: scale(1.05);
+      }
+      .sx-img-box {
+        position: relative;
+        height: 215px;
+        overflow: hidden;
+        background: #080f1b;
+        cursor: zoom-in;
+        transform-style: preserve-3d;
+        transition:
+          transform 0.2s ease-out,
+          box-shadow 0.2s ease-out;
+      }
+      .sx-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+        transition: transform 0.4s ease;
+      }
+      .sx-img-box:hover img {
+        transform: scale(1.03);
+      }
+      .sx-img-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(11, 21, 38, 0.55);
+        backdrop-filter: blur(1.5px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.25s;
+      }
+      .sx-img-box:hover .sx-img-overlay {
+        opacity: 1;
+      }
+      .sx-img-overlay span {
+        padding: 6px 14px;
+        border-radius: 99px;
+        background: var(--g);
+        color: #0b1526;
+        font-size: 12px;
+        font-weight: 700;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      }
+      .sx-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 8px;
+        min-width: 0;
+      }
+      .sx-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .sx-icon {
+        color: var(--g);
+        font-size: 26px;
+        line-height: 1;
+        flex-shrink: 0;
+      }
+      .sx h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0;
+        color: var(--tx);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .sx p {
+        margin: 0;
+        color: var(--mu);
+        font-size: 14px;
+        line-height: 1.6;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.45s ease,
+          opacity 0.4s ease;
+      }
+      .sx.on p {
+        max-height: 80px;
+        opacity: 1;
+      }
+      .sx-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.45s ease,
+          opacity 0.4s ease,
+          margin 0.3s;
+      }
+      .sx.on .sx-tags {
+        max-height: 60px;
+        opacity: 1;
+        margin-top: 4px;
+      }
+      .sx-tag {
+        font-size: 12px;
+        color: #c9d8ee;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 3px 10px;
+        border-radius: 99px;
+        white-space: nowrap;
+      }
+      .sx:not(.on) {
+        align-items: center;
+        justify-content: center;
+        padding: 16px 8px;
+      }
+      .sx:not(.on) .sx-preview {
+        display: none;
+      }
+      .sx:not(.on) .sx-head {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        height: 100%;
+        justify-content: space-between;
+      }
+      .sx:not(.on) .sx-icon {
+        font-size: 24px;
+        margin-top: 10px;
+      }
+      .sx:not(.on) h3 {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        letter-spacing: 1px;
+        font-size: 15px;
+        color: var(--mu);
+        white-space: nowrap;
+        margin-bottom: 12px;
+      }
+      .sx:not(.on):hover h3 {
+        color: var(--tx);
+      }
+      /* why */
+      .wy {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 60px;
+      }
+      .wy div {
+        padding: 22px 0;
+        border-bottom: 1px solid var(--ln);
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        font-size: 19px;
+        transition:
+          padding 0.35s,
+          color 0.35s;
+      }
+      .wy div:before {
+        content: "";
+        width: 9px;
+        height: 9px;
+        transform: rotate(45deg);
+        background: var(--g);
+        flex: none;
+      }
+      .wy div:hover {
+        padding-inline-start: 14px;
+        color: var(--g2);
+      }
+      .sec {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+      .sl {
+        display: grid;
+        gap: 10px;
+      }
+      .sl div {
+        padding: 16px 22px;
+        border-radius: 18px;
+        border: 1px solid var(--ln);
+        background: #ffffff06;
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        font-size: 15px;
+        transition: 0.3s;
+      }
+      .sl div:hover {
+        border-color: var(--g);
+        transform: translateX(-6px);
+      }
+      .sl small {
+        color: var(--mu);
+        font-size: 12px;
+      }
+      /* CTA Morph Section */
+      #cta {
+        padding: 70px 0 90px;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-outer-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        min-height: 440px;
+      }
+      .cta-morph-box {
+        position: relative;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+        /* Phase 1: Starts as a Circle */
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        border: 2px solid var(--g);
+        box-shadow: 0 0 60px rgba(197, 164, 109, 0.45);
+        background: #0f1c34;
+        transition:
+          border-color 0.4s,
+          box-shadow 0.4s;
+      }
+
+      /* Phase 2: Morphs from Circle into Wide Rounded Rectangle */
+      .cta-morph-box.in {
+        animation: morphCircleToRect 1.35s cubic-bezier(0.16, 1, 0.3, 1)
+          forwards;
+      }
+
+      @keyframes morphCircleToRect {
+        0% {
+          width: 220px;
+          height: 220px;
+          border-radius: 50%;
+          border-color: var(--g);
+          box-shadow: 0 0 60px rgba(197, 164, 109, 0.5);
+          transform: scale(0.92);
+        }
+        28% {
+          width: 250px;
+          height: 250px;
+          border-radius: 50%;
+          border-color: var(--g);
+          box-shadow: 0 0 80px rgba(197, 164, 109, 0.65);
+          transform: scale(1.05);
+        }
+        65% {
+          width: 720px;
+          height: 380px;
+          border-radius: 55px;
+          border-color: rgba(197, 164, 109, 0.55);
+          box-shadow: 0 25px 80px rgba(0, 0, 0, 0.7);
+        }
+        100% {
+          width: 100%;
+          max-width: 1040px;
+          height: auto;
+          min-height: 400px;
+          border-radius: 32px;
+          border-color: rgba(197, 164, 109, 0.4);
+          box-shadow:
+            0 35px 90px -15px rgba(0, 0, 0, 0.85),
+            0 0 50px rgba(197, 164, 109, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
+          transform: scale(1);
+        }
+      }
+
+      /* Background of the card (smart screen aesthetic) */
+      .cta-card-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        overflow: hidden;
+      }
+      .cta-card-bg-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        opacity: 0.38;
+        filter: blur(1.5px) brightness(0.85);
+        transform: scale(1.1);
+        transition: transform 1.6s ease-out;
+        transition: transform 0.2s ease-out;
+      }
+      .cta-morph-box.in .cta-card-bg-img {
+        transform: scale(1);
+      }
+      .cta-card-bg-overlay {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse at 50% 0%,
+            rgba(197, 164, 109, 0.22),
+            transparent 70%
+          ),
+          linear-gradient(
+            165deg,
+            rgba(16, 29, 52, 0.92) 0%,
+            rgba(8, 16, 29, 0.96) 100%
+          );
+        backdrop-filter: blur(14px);
+      }
+
+      /* Phase 3: Text content drops in from the top onto the rectangle */
+      .cta-content {
+        position: relative;
+        z-index: 2;
+        padding: 60px 36px;
+        max-width: 780px;
+        margin: auto;
+        opacity: 0;
+        transform: translateY(-45px);
+        pointer-events: none;
+      }
+      .cta-morph-box.in .cta-content {
+        animation: ctaTextDropIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) 1.15s
+          forwards;
+        pointer-events: auto;
+      }
+
+      @keyframes ctaTextDropIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-50px);
+        }
+        50% {
+          opacity: 0.7;
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .cta-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--g2);
+        background: rgba(197, 164, 109, 0.15);
+        border: 1px solid rgba(197, 164, 109, 0.35);
+        border-radius: 99px;
+        padding: 5px 16px;
+        font-size: 13px;
+        font-weight: 500;
+        margin-bottom: 18px;
+      }
+      .cta-content h2 {
+        font-size: clamp(28px, 4.2vw, 48px);
+        font-weight: 800;
+        color: #ffffff;
+        line-height: 1.3;
+        margin: 0 auto 16px;
+        max-width: 22ch;
+      }
+      .cta-content p {
+        font-size: clamp(16px, 1.8vw, 19px);
+        color: var(--mu);
+        line-height: 1.8;
+        max-width: 58ch;
+        margin: 0 auto 34px;
+      }
+      .cta-btn-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .cta-btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 34px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--g), #e0bf85);
+        color: #0b1526;
+        font-size: 16px;
+        font-weight: 800;
+        text-decoration: none;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+        box-shadow: 0 8px 26px rgba(197, 164, 109, 0.4);
+      }
+      .cta-btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 14px 34px rgba(197, 164, 109, 0.55);
+      }
+      .cta-arrow {
+        font-size: 18px;
+        transition: transform 0.25s;
+      }
+      .cta-btn-primary:hover .cta-arrow {
+        transform: translateX(-4px);
+      }
+      .cta-btn-call {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 28px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        backdrop-filter: blur(10px);
+        transition:
+          background 0.25s,
+          border-color 0.25s,
+          transform 0.25s;
+      }
+      .cta-btn-call:hover {
+        background: rgba(255, 255, 255, 0.14);
+        border-color: rgba(197, 164, 109, 0.45);
+        transform: translateY(-2px);
+      }
+      .cta-call-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--g);
+      }
+      @media (max-width: 760px) {
+        .cta-content {
+          padding: 40px 20px;
+        }
+        .cta-btn-row {
+          flex-direction: column;
+          width: 100%;
+        }
+        .cta-btn-primary,
+        .cta-btn-call {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+      footer {
+        border-top: 1px solid var(--ln);
+        padding: 34px 0 44px;
+        color: var(--mu);
+        font-size: 14px;
+      }
+      .fo {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .rv {
+        opacity: 0;
+      }
+      .rv.in {
+        opacity: 1;
+        animation: up 0.9s cubic-bezier(0.2, 0.9, 0.2, 1) backwards;
+        animation-delay: var(--d, 0s);
+      }
+      /* Typewriter Effect & Cursor */
+      .typing-cursor {
+        position: relative;
+      }
+      .typing-cursor::after {
+        content: "";
+        display: inline-block;
+        width: 3px;
+        height: 1em;
+        background: var(--g);
+        margin-inline-start: 4px;
+        vertical-align: -0.1em;
+        border-radius: 1px;
+        box-shadow: 0 0 10px rgba(197, 164, 109, 0.75);
+        animation: twBlink 0.5s infinite;
+      }
+      @keyframes twBlink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+      @media (max-width: 960px) {
+        .lk,
+        .ac .bo {
+          display: none;
+        }
+        .mb {
+          display: block;
+        }
+        header.op .lk {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          inset: 78px 0 auto;
+          background: var(--n1);
+          padding: 16px 22px 24px;
+          border-bottom: 1px solid var(--ln);
+          gap: 14px;
+        }
+        .hg,
+        .sh,
+        .sec,
+        .pnl,
+        .wy {
+          grid-template-columns: 1fr;
+        }
+        .stage {
+          height: 440px;
+          margin-top: 20px;
+        }
+        .w1 {
+          inset: 0 0 auto 0;
+        }
+        .tabs {
+          position: static;
+          grid-template-columns: 1fr 1fr;
+        }
+        .eco {
+          height: auto;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          justify-content: center;
+        }
+        .eco svg,
+        .hub {
+          display: none;
+        }
+        .nd {
+          position: static;
+          transform: none !important;
+        }
+        .sc2 {
+          flex-direction: column;
+          height: auto;
+          gap: 16px;
+        }
+        .sx,
+        .sx.on {
+          flex: none;
+          height: auto;
+        }
+        .sx:not(.on) {
+          align-items: stretch;
+          justify-content: flex-start;
+          padding: 16px 20px;
+        }
+        .sx:not(.on) .sx-head {
+          flex-direction: row;
+          align-items: center;
+          gap: 12px;
+          height: auto;
+          justify-content: flex-start;
+        }
+        .sx:not(.on) .sx-icon {
+          margin-top: 0;
+        }
+        .sx:not(.on) h3 {
+          writing-mode: horizontal-tb;
+          transform: none;
+          margin-bottom: 0;
+          font-size: 17px;
+        }
+        .sx-img-box {
+          height: 180px;
+        }
+        .sx p,
+        .sx.on p {
+          max-height: none;
+          opacity: 1;
+        }
+        .sx-tags,
+        .sx.on .sx-tags {
+          max-height: none;
+          opacity: 1;
+          margin-top: 8px;
+        }
+        section {
+          padding: 72px 0;
+        }
+        .w2 {
+          width: 210px;
+        }
+        .w4 {
+          width: 200px;
+        }
+      }
+      .lt {
+        background: #f6f2e9;
+        --tx: #0b1526;
+        --mu: #56627e;
+        --ln: #0b152622;
+        --g: #9a7a3c;
+        color: var(--tx);
+      }
+      .lt .tabs button:hover {
+        background: #0b15260d;
+        color: #0b1526;
+      }
+      .lt .pnl {
+        --tx: #eef1f8;
+        --mu: #9fadc7;
+        --ln: #ffffff1a;
+        --g: #c5a46d;
+        color: var(--tx);
+        box-shadow: 0 40px 80px -40px #0b152688;
+      }
+      .lt .wy div:hover {
+        color: #9a7a3c;
+      }
+      /* AI callout arrow on the Reports & Analytics node */
+      .ai-arrow {
+        pointer-events: none;
+        overflow: visible;
+      }
+      .ai-arrow path {
+        fill: none;
+        stroke: var(--g2);
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+      }
+      .ai-arrow polygon {
+        fill: var(--g2);
+        opacity: 0;
+      }
+      .eco.ai-on .ai-arrow path {
+        animation: aiDraw 1.1s 1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+      }
+      .eco.ai-on .ai-arrow polygon {
+        animation: aiHead 0.3s 2s forwards;
+      }
+      .ai-note {
+        position: absolute;
+        z-index: 3;
+        transform: translateX(-50%);
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        padding: 8px 18px;
+        border-radius: 16px;
+        text-align: center;
+        line-height: 1.5;
+        background: linear-gradient(120deg, #e8d3a2, #c5a46d);
+        color: #0b1526;
+        box-shadow:
+          0 10px 30px #c5a46d55,
+          0 0 0 4px #0b1526;
+        white-space: nowrap;
+      }
+      .ai-note b {
+        font-size: 14px;
+        font-weight: 800;
+      }
+      .ai-note small {
+        font-size: 11px;
+        font-weight: 500;
+        opacity: 0.8;
+      }
+      .eco.ai-on .ai-note {
+        animation:
+          aiNoteIn 0.7s 0.7s cubic-bezier(0.2, 0.9, 0.2, 1) forwards,
+          aiFloat 4s 1.6s ease-in-out infinite;
+      }
+      .nd.ai-hot {
+        border-color: var(--g);
+        color: var(--g2);
+        box-shadow: 0 0 22px #c5a46d66;
+        animation: aiHot 2.6s ease-in-out infinite;
+      }
+      .nd.ai-hot:after {
+        content: " ✦ AI";
+        color: var(--g);
+        font-weight: 700;
+      }
+      @keyframes aiDraw {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+      @keyframes aiHead {
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes aiNoteIn {
+        from {
+          opacity: 0;
+          transform: translate(-50%, -10px) scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(-50%);
+        }
+      }
+      @keyframes aiFloat {
+        50% {
+          transform: translate(-50%, -5px);
+        }
+      }
+      @keyframes aiHot {
+        50% {
+          box-shadow: 0 0 36px #e8d3a2aa;
+        }
+      }
+      @media (max-width: 960px) {
+        .ai-note {
+          display: none;
+        }
+      }
+      /* Why Sa7Sa7: professional animated benefit cards */
+      .wy {
+        gap: 16px;
+      }
+      .wi {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding: 22px 24px;
+        border-radius: 22px;
+        background: #fff;
+        border: 1px solid #0b152614;
+        box-shadow:
+          0 1px 0 #fff inset,
+          0 10px 30px -18px #0b152655;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+          transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+          background 0.4s,
+          color 0.4s,
+          box-shadow 0.4s,
+          border-color 0.4s;
+        transition-delay:
+          calc(var(--i) * 90ms), calc(var(--i) * 90ms), 0s, 0s, 0s, 0s;
+      }
+      .wi:before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 3px;
+        background: linear-gradient(90deg, #c5a46d, #e8d3a2);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.9s cubic-bezier(0.65, 0, 0.35, 1)
+          calc(var(--i) * 90ms + 300ms);
+      }
+      .wi:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          110deg,
+          transparent 30%,
+          #c5a46d33 50%,
+          transparent 70%
+        );
+        transform: translateX(120%);
+        transition: transform 0.8s;
+        pointer-events: none;
+      }
+      .wy.wy-on .wi {
+        opacity: 1;
+        transform: none;
+      }
+      .wy.wy-on .wi:before {
+        transform: scaleX(1);
+      }
+      .wi-ic {
+        flex: none;
+        display: grid;
+        place-items: center;
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
+        background: #0b1526;
+        color: #e8d3a2;
+        transform: scale(0.5) rotate(-12deg);
+        opacity: 0;
+        transition:
+          transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1)
+            calc(var(--i) * 90ms + 250ms),
+          opacity 0.5s calc(var(--i) * 90ms + 250ms),
+          background 0.4s,
+          color 0.4s;
+      }
+      .wy.wy-on .wi-ic {
+        transform: none;
+        opacity: 1;
+      }
+      .wi-tx {
+        flex: 1;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.6;
+      }
+      .wi-no {
+        flex: none;
+        font-size: 40px;
+        font-weight: 800;
+        line-height: 1;
+        color: #0b152614;
+        letter-spacing: -1px;
+        transition:
+          color 0.4s,
+          transform 0.4s;
+      }
+      .wy.wy-on .wi:hover {
+        transform: translateY(-6px);
+        background: #0b1526;
+        color: #eef1f8;
+        border-color: #c5a46d;
+        box-shadow: 0 24px 50px -20px #0b1526aa;
+        transition-delay: 0s;
+      }
+      .wy.wy-on .wi:hover:after {
+        transform: translateX(-120%);
+      }
+      .wi:hover .wi-ic {
+        background: linear-gradient(135deg, #e8d3a2, #c5a46d);
+        color: #0b1526;
+        transform: rotate(-6deg) scale(1.06);
+        transition-delay: 0s;
+      }
+      .wi:hover .wi-no {
+        color: #c5a46d;
+        transform: translateX(-4px);
+      }
+      @media (max-width: 960px) {
+        .wi {
+          padding: 18px 18px;
+        }
+        .wi-tx {
+          font-size: 16px;
+        }
+        .wi-no {
+          font-size: 30px;
+        }
+      }
+      /* Security: scan-and-unlock sequence + drawing shield */
+      .sl {
+        position: relative;
+      }
+      .sl > div {
+        opacity: 0.5;
+      }
+      .sec-on .sl > div {
+        opacity: 1;
+        border-color: #c5a46d55;
+        background: #c5a46d0d;
+        animation: slUnlock 0.7s cubic-bezier(0.2, 0.9, 0.2, 1) backwards;
+        animation-delay: calc(var(--i) * 0.4s + 0.4s);
+      }
+      @keyframes slUnlock {
+        0% {
+          opacity: 0.5;
+          border-color: var(--ln);
+          background: #ffffff06;
+          transform: none;
+        }
+        45% {
+          opacity: 1;
+          border-color: #e8d3a2;
+          background: #c5a46d26;
+          box-shadow: 0 0 30px #c5a46d66;
+          transform: translateX(-10px);
+        }
+        100% {
+          box-shadow: 0 0 0 transparent;
+          transform: none;
+        }
+      }
+      .sl-m {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .sl-ic {
+        position: relative;
+        flex: none;
+        width: 36px;
+        height: 36px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: #ffffff0d;
+        border: 1px solid var(--ln);
+        color: var(--mu);
+        transition:
+          background 0.4s,
+          border-color 0.4s;
+        transition-delay: calc(var(--i) * 0.4s + 0.5s);
+      }
+      .sl-ic svg {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.9;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transition:
+          opacity 0.35s,
+          transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transition-delay: calc(var(--i) * 0.4s + 0.5s);
+      }
+      .sl-ic .ic-c {
+        opacity: 0;
+        transform: scale(0.3) rotate(-30deg);
+        color: #0b1526;
+      }
+      .sec-on .sl-ic {
+        background: linear-gradient(135deg, #e8d3a2, #c5a46d);
+        border-color: transparent;
+      }
+      .sec-on .sl-ic .ic-l {
+        opacity: 0;
+        transform: scale(0.3) rotate(40deg);
+      }
+      .sec-on .sl-ic .ic-c {
+        opacity: 1;
+        transform: none;
+      }
+      .sl-beam {
+        position: absolute;
+        inset: -6px;
+        pointer-events: none;
+        overflow: hidden;
+        border-radius: 22px;
+        z-index: 2;
+      }
+      .sl-beam i {
+        position: absolute;
+        inset: 0 0 auto;
+        top: -80px;
+        height: 80px;
+        opacity: 0;
+        background: linear-gradient(
+          180deg,
+          transparent,
+          #c5a46d2e 75%,
+          #e8d3a299
+        );
+        border-bottom: 2px solid #e8d3a2;
+        box-shadow: 0 10px 26px #c5a46d88;
+      }
+      .sec-on .sl-beam i {
+        animation:
+          slScan 2.9s linear 0.25s forwards,
+          slIdle 10s linear 6s infinite;
+      }
+      @keyframes slScan {
+        0% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        92% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(calc(var(--lh, 440px) + 90px));
+        }
+      }
+      @keyframes slIdle {
+        0% {
+          opacity: 0.4;
+          transform: translateY(0);
+        }
+        30% {
+          opacity: 0.4;
+          transform: translateY(calc(var(--lh, 440px) + 90px));
+        }
+        31%,
+        100% {
+          opacity: 0;
+          transform: translateY(0);
+        }
+      }
+      .shield {
+        width: 150px;
+        height: 150px;
+        margin-top: 34px;
+      }
+      .shield svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        fill: none;
+        stroke: #c5a46d;
+        stroke-width: 2.2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .shield .rg {
+        stroke-width: 1;
+        opacity: 0;
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+      .shield .sh {
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+        fill: #c5a46d14;
+      }
+      .shield .ck {
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+        stroke: #e8d3a2;
+        stroke-width: 3.4;
+      }
+      .sec-on .shield .sh {
+        animation: slDraw 1.4s 0.3s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+      }
+      .sec-on .shield .ck {
+        animation: slDraw 0.6s 1.6s ease-out forwards;
+      }
+      .sec-on .shield svg {
+        animation: slGlow 3.6s 2.2s ease-in-out infinite;
+      }
+      .sec-on .shield .rg {
+        animation: slRing 3.6s ease-out 1.8s infinite;
+      }
+      .sec-on .shield .r2 {
+        animation-delay: 3s;
+      }
+      .sec-on .shield .r3 {
+        animation-delay: 4.2s;
+      }
+      @keyframes slDraw {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+      @keyframes slRing {
+        0% {
+          opacity: 0.7;
+          transform: scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(3.4);
+        }
+      }
+      @keyframes slGlow {
+        50% {
+          filter: drop-shadow(0 0 14px #c5a46d99);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .sl > div {
+          opacity: 1;
+          background: #c5a46d0d;
+          border-color: #c5a46d55;
+        }
+        .sl-ic {
+          background: linear-gradient(135deg, #e8d3a2, #c5a46d);
+          border-color: transparent;
+        }
+        .sl-ic .ic-l {
+          opacity: 0;
+        }
+        .sl-ic .ic-c {
+          opacity: 1;
+          transform: none;
+        }
+        .sl-beam,
+        .shield .rg {
+          display: none;
+        }
+        .shield .sh,
+        .shield .ck {
+          stroke-dashoffset: 0;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .wi,
+        .wi-ic {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+        .wi:before {
+          transform: scaleX(1) !important;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .ai-note {
+          opacity: 1;
+        }
+        .ai-arrow path {
+          stroke-dashoffset: 0;
+        }
+        .ai-arrow polygon {
+          opacity: 1;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+        .rv {
+          opacity: 1;
+        }
+      }
+
+      /* ===== Sa7Sa7 cinematic double-door intro (ported from the large source) ===== */
+      .intro-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        background: var(--n1);
+        perspective: 1600px;
+        color: #fff;
+        isolation: isolate;
+        opacity: 1;
+        transition: opacity 0.45s ease;
+      }
+      .intro-door {
+        position: absolute;
+        inset: 0 0 auto;
+        width: 100%;
+        height: 50.1%;
+        z-index: 1;
+        background:
+          radial-gradient(ellipse at 50% 100%, #263b59 0, transparent 50%),
+          linear-gradient(180deg, #263b59, var(--n1) 78%);
+        border-bottom: 1px solid #c5a46d66;
+        box-shadow: inset 0 -20px 50px #0b172c45;
+        transform-style: preserve-3d;
+        transition:
+          transform 1.2s cubic-bezier(0.76, 0, 0.2, 1),
+          filter 1.2s;
+      }
+      .intro-door-bottom {
+        inset: auto 0 0;
+        background:
+          radial-gradient(ellipse at 50% 0, #263b59 0, transparent 50%),
+          linear-gradient(0deg, #263b59, var(--n1) 78%);
+        border-bottom: 0;
+        border-top: 1px solid #c5a46d66;
+        box-shadow: inset 0 20px 50px #0b172c45;
+        transform-origin: center bottom;
+      }
+      .intro-door-top {
+        transform-origin: center top;
+      }
+      .intro-door:before {
+        content: "";
+        position: absolute;
+        inset: 18px;
+        border: 1px solid #c5a46d30;
+        box-shadow: inset 0 0 50px #c5a46d0d;
+      }
+      .intro-door:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 35% 30%,
+          #fff,
+          #c5a46d 52%,
+          #8f7447
+        );
+        box-shadow:
+          0 0 0 4px #c5a46d20,
+          0 3px 12px #101827;
+        transform: translateX(-50%);
+      }
+      .intro-door-top:after {
+        bottom: 22px;
+      }
+      .intro-door-bottom:after {
+        top: 22px;
+      }
+      .intro-center {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        transition:
+          opacity 0.45s,
+          transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1);
+        padding: 20px;
+      }
+      .intro-brandmark {
+        width: 72px;
+        height: 72px;
+        border-radius: 23px;
+        margin: 0 auto 16px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(145deg, #e8d3a2, #c5a46d);
+        color: var(--n1);
+        font-size: 36px;
+        font-weight: 800;
+        box-shadow:
+          0 12px 34px #c5a46d55,
+          0 0 0 8px #c5a46d12;
+        animation: introMarkIn 0.7s 0.08s both cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      .intro-center-logo {
+        display: block;
+        width: min(280px, 68vw);
+        height: auto;
+        margin: 0 auto 16px;
+        filter: drop-shadow(0 12px 26px #0008);
+        animation: introMarkIn 0.7s 0.08s both cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      .intro-title {
+        font:
+          800 26px Alexandria,
+          sans-serif;
+        letter-spacing: -0.5px;
+        min-height: 1.5em;
+      }
+      .intro-subtitle {
+        font:
+          500 10px Inter,
+          Arial,
+          sans-serif;
+        letter-spacing: 0.12em;
+        color: var(--g2);
+        margin-top: 5px;
+        min-height: 1.5em;
+      }
+      .intro-progress {
+        height: 2px;
+        width: 160px;
+        background: #263b59;
+        margin: 22px auto 0;
+        overflow: hidden;
+        border-radius: 9px;
+      }
+      .intro-progress i {
+        display: block;
+        width: 0;
+        height: 100%;
+        background: linear-gradient(90deg, #a98a56, var(--g), #e8d3a2);
+        box-shadow: 0 0 12px var(--g);
+        transition: width 1.45s cubic-bezier(0.65, 0, 0.35, 1);
+      }
+      .intro-skip {
+        position: absolute;
+        z-index: 4;
+        bottom: 28px;
+        inset-inline-end: 30px;
+        border: 1px solid #e8d3a266;
+        background: #ffffff0a;
+        color: #e8d3a2;
+        border-radius: 999px;
+        padding: 8px 14px;
+        font:
+          500 11px Alexandria,
+          sans-serif;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          color 0.2s,
+          opacity 0.25s;
+      }
+      .intro-skip:hover {
+        background: #c5a46d22;
+        color: #fff;
+      }
+      .intro-overlay.opening .intro-door-top {
+        transform: rotateX(104deg);
+        filter: brightness(0.7);
+      }
+      .intro-overlay.opening .intro-door-bottom {
+        transform: rotateX(-104deg);
+        filter: brightness(0.7);
+      }
+      .intro-overlay.opening .intro-center {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.96);
+      }
+      .intro-overlay.opening .intro-skip {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .intro-overlay.leaving {
+        opacity: 0;
+        pointer-events: none;
+      }
+      @keyframes introMarkIn {
+        from {
+          opacity: 0;
+          transform: translateY(18px) scale(0.78) rotate(-8deg);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1) rotate(0);
+        }
+      }
+      /* Hero enters from opposite sides after the doors part; existing section reveals remain intact. */
+      @keyframes saHeroCopyIn {
+        from {
+          opacity: 0;
+          transform: translateX(72px) skew(-4deg);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0) skew(0);
+        }
+      }
+      @keyframes saHeroStageIn {
+        from {
+          opacity: 0;
+          transform: translateX(-72px) skew(4deg) scale(0.97);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0) skew(0) scale(1);
+        }
+      }
+      body.intro-entered .hero .bdg,
+      body.intro-entered .hero h1,
+      body.intro-entered .hero .lead,
+      body.intro-entered .hero .row {
+        animation: saHeroCopyIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      body.intro-entered .hero h1 {
+        animation-delay: 0.1s;
+      }
+      body.intro-entered .hero .lead {
+        animation-delay: 0.22s;
+      }
+      body.intro-entered .hero .row {
+        animation-delay: 0.34s;
+      }
+      body.intro-entered .stage {
+        animation: saHeroStageIn 1.05s 0.18s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      @media (max-width: 760px) {
+        @keyframes saHeroCopyIn {
+          from {
+            opacity: 0;
+            transform: translateY(24px);
+          }
+          to {
+            opacity: 1;
+            transform: none;
+          }
+        }
+        @keyframes saHeroStageIn {
+          from {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+          }
+          to {
+            opacity: 1;
+            transform: none;
+          }
+        }
+        .intro-brandmark {
+          width: 64px;
+          height: 64px;
+        }
+        .intro-center-logo {
+          width: min(250px, 72vw);
+        }
+        .intro-title {
+          font-size: 23px;
+        }
+        .intro-skip {
+          bottom: 20px;
+          inset-inline-end: 20px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .intro-overlay,
+        .intro-door,
+        .intro-center,
+        .intro-skip {
+          transition: none !important;
+        }
+        .intro-brandmark {
+          animation: none !important;
+        }
+        body.intro-entered .hero .bdg,
+        body.intro-entered .hero h1,
+        body.intro-entered .hero .lead,
+        body.intro-entered .hero .row,
+        body.intro-entered .stage {
+          animation: none !important;
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      }
+    </style>
+
+    <style id="sa-motion">
+      /* ===== Scroll motion layer (additive) ===== */
+      .sa-bar {
+        position: fixed;
+        top: env(safe-area-inset-top, 0px);
+        left: 0;
+        right: 0;
+        height: 3px;
+        z-index: 60;
+        pointer-events: none;
+        transform-origin: 100% 50%;
+        transform: scaleX(var(--p, 0));
+        background: linear-gradient(270deg, #c5a46d, #e8d3a2 60%, #fff6);
+        box-shadow: 0 0 16px #c5a46dcc;
+      }
+      section {
+        isolation: isolate;
+      }
+      .sa-orb {
+        position: absolute;
+        z-index: -1;
+        width: clamp(240px, 34vw, 460px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.5;
+        pointer-events: none;
+        background: radial-gradient(
+          circle,
+          var(--oc, #c5a46d55),
+          transparent 68%
+        );
+      }
+      [data-sp] {
+        translate: 0 var(--py, 0px);
+        will-change: translate;
+      }
+      .sa {
+        opacity: 0;
+        translate: 0 60px;
+        scale: 0.95;
+        filter: blur(10px);
+        transition:
+          opacity 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) var(--sd, 0s),
+          translate 1.1s cubic-bezier(0.16, 1, 0.3, 1) var(--sd, 0s),
+          scale 1.1s cubic-bezier(0.16, 1, 0.3, 1) var(--sd, 0s),
+          filter 0.9s ease var(--sd, 0s);
+      }
+      .sa.sa-in {
+        opacity: 1;
+        translate: 0 0;
+        scale: 1;
+        filter: none;
+      }
+      .sa-ln {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: min(1220px, calc(100% - 40px));
+        height: 1px;
+        translate: -50% 0;
+        scale: 0 1;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          #c5a46d,
+          #e8d3a2,
+          #c5a46d,
+          transparent
+        );
+        box-shadow: 0 0 18px #c5a46d88;
+        transition: scale 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .sa-ln.sa-in {
+        scale: 1 1;
+      }
+      @media (max-width: 760px) {
+        .sa {
+          translate: 0 36px;
+          filter: blur(5px);
+        }
+        .sa-orb {
+          filter: blur(56px);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .sa {
+          opacity: 1;
+          translate: none;
+          scale: none;
+          filter: none;
+          transition: none;
+        }
+        [data-sp] {
+          translate: none;
+        }
+        .sa-bar,
+        .sa-orb {
+          display: none;
+        }
+        .sa-ln {
+          scale: 1 1;
+          transition: none;
+        }
+      }
+    </style>
+
+    <style id="sa-motion-2">
+      /* ===== Motion layer 2: live network, cursor light, magnetic buttons ===== */
+      .sa-net {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+        -webkit-mask-image: linear-gradient(#000 62%, transparent);
+        mask-image: linear-gradient(#000 62%, transparent);
+      }
+      .sa-glow {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 560px;
+        height: 560px;
+        margin: -280px 0 0 -280px;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 45;
+        opacity: 0;
+        mix-blend-mode: screen;
+        background: radial-gradient(
+          circle,
+          #c5a46d2e,
+          #c5a46d10 38%,
+          transparent 66%
+        );
+        transition: opacity 0.6s;
+      }
+      .sa-glow.on {
+        opacity: 1;
+      }
+      .btn {
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s,
+          background 0.25s,
+          translate 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      @media (hover: none), (prefers-reduced-motion: reduce) {
+        .sa-glow {
+          display: none;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .sa-net {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="intro-overlay"
+      id="site-intro"
+      role="dialog"
+      aria-modal="true"
+      aria-label="مقدمة صحصح"
+    >
+      <div class="intro-door intro-door-top" aria-hidden="true"></div>
+      <div class="intro-door intro-door-bottom" aria-hidden="true"></div>
+      <div class="intro-center">
+        <img class="intro-center-logo" src="sa7sa7-logo.svg" alt="صحصح" />
+        <div class="intro-subtitle" id="intro-subtitle">
+          SA7SA7 BUSINESS MANAGEMENT PLATFORM
+        </div>
+        <div class="intro-progress" aria-hidden="true"><i></i></div>
+      </div>
+      <button class="intro-skip" id="intro-skip" type="button">
+        تخطي الحركة
+      </button>
+    </div>
+
+    <header id="hd">
+      <div class="w nv">
+        <a class="logo" href="#home" aria-label="صحصح - الرئيسية"
+          ><img src="sa7sa7-logo.svg" alt="صحصح"
+        /></a>
+        <nav class="lk" id="lk">
+          <a href="#home">الرئيسية</a><a href="#features">المميزات</a
+          ><a href="#power">الحلول</a><a href="#sectors">القطاعات</a
+          ><a href="#cta">الأسعار</a><a href="#why">من نحن</a
+          ><a href="#cta">تواصل معنا</a>
+        </nav>
+        <div class="ac">
+          <a class="btn bo" href="#cta">احجز عرض توضيحي</a
+          ><a class="btn bg" href="#cta">ابدأ الآن</a
+          ><button class="mb" id="mb" aria-label="القائمة">☰</button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="hero" id="home">
+        <div class="w hg">
+          <div>
+            <span class="bdg">◆ منظومة حساباتي ERP</span>
+            <h1>كل تفاصيل شغلك... <em>في مكان واحد</em></h1>
+            <p class="lead">
+              صحصح نظام إدارة أعمال متكامل يجمع المبيعات والمخزون والحسابات
+              والعملاء والموظفين في منصة واحدة، علشان تدير شغلك بذكاء وتتحكم في
+              كل تفاصيله بسهولة.
+            </p>
+            <div class="row">
+              <a class="btn bg" href="#features">اكتشف إمكانيات صحصح</a
+              ><a class="btn bo" href="#cta">احجز عرض توضيحي</a>
+            </div>
+          </div>
+          <div class="stage" aria-hidden="true">
+            <div class="win w1">
+              <div class="wh">
+                <i></i><i></i><i></i
+                ><span>⚡ شاشة الكاشير ونقطة البيع الحية (POS)</span>
+              </div>
+              <div
+                class="hero-screen-img"
+                onclick="
+                  openLightbox(
+                    'assets/screenshots/pos.png',
+                    'نقطة البيع السريعة POS',
+                  )
+                "
+              >
+                <img src="assets/screenshots/pos.png" alt="شاشة كاشير صحصح" />
+              </div>
+            </div>
+            <div class="win w2">
+              <div class="wh"><i></i><i></i><i></i><span>المخزون</span></div>
+              <div class="wb">
+                <div class="tr">جرد بالباركود<span class="tg on"></span></div>
+                <div class="tr">تنبيه النواقص<span class="tg on"></span></div>
+                <div class="tr">تحويل بين الفروع<span class="tg"></span></div>
+              </div>
+            </div>
+            <div class="win w4">
+              <div class="wh"><i></i><i></i><i></i><span>الصلاحيات</span></div>
+              <div class="wb">
+                <div class="tr">كاشير<span class="tg on"></span></div>
+                <div class="tr">محاسب<span class="tg on"></span></div>
+                <div class="tr">مدير فرع<span class="tg"></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section id="power" class="pw">
+        <div class="w">
+          <div class="eb">منصة واحدة</div>
+          <h2>كل أدوات إدارة أعمالك... أخيرًا في نظام واحد</h2>
+          <p class="sb">
+            ١٣ وحدة شغالة مع بعض على نفس البيانات. مرّر على أي وحدة وشوف
+            ارتباطها بالنظام.
+          </p>
+          <div class="eco" id="eco">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" id="sv"></svg>
+            <div class="hub">صحصح<br />ERP</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="lt">
+        <div class="w">
+          <div class="eb">المميزات</div>
+          <h2>كل وحدة بتعمل شغلها بالتفصيل</h2>
+          <p class="sb">اختار الوحدة وشوف إيه اللي تقدر تعمله بيها.</p>
+          <div class="sh">
+            <div class="tabs" id="tabs"></div>
+            <div class="pnl" id="pnl"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pw">
+        <div class="w">
+          <div class="eb">ترابط كامل</div>
+          <h2>كل عملية بتحرّك اللي بعدها لوحدها</h2>
+          <p class="sb">
+            اختار نوع العملية وشوف خطواتها مترابطة إزاي من البداية لحد التقارير،
+            من غير إدخال البيانات مرتين.
+          </p>
+          <div class="flow-widget" id="flow-widget">
+            <div
+              class="flow-filters"
+              id="flow-filters"
+              role="group"
+              aria-label="اختار مسار العملية"
+            ></div>
+            <div class="flow-roadmap" id="flow-roadmap" aria-live="polite">
+              <svg
+                class="flow-route-svg"
+                id="flow-route-svg"
+                aria-hidden="true"
+                preserveAspectRatio="none"
+              >
+                <path class="flow-route-base" id="flow-route-base"></path>
+                <path class="flow-route-active" id="flow-route-active"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="sectors">
+        <div class="w">
+          <div class="eb">القطاعات</div>
+          <h2>مصمم لأنواع نشاط مختلفة</h2>
+          <p class="sb">اضغط على أي قطاع وشوف إزاي صحصح بيخدمه.</p>
+          <div class="sc2" id="sc"></div>
+        </div>
+      </section>
+
+      <section id="why" class="lt">
+        <div class="w">
+          <div class="eb">ليه صحصح؟</div>
+          <h2>مش مجرد برنامج مبيعات... دي طريقة أذكى لإدارة شغلك</h2>
+          <p class="sb"></p>
+          <div class="wy" id="wy">
+            <article class="wi" style="--i: 0">
+              <span class="wi-ic"
+                ><svg
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 3l9 5-9 5-9-5 9-5z" />
+                  <path d="M3 13l9 5 9-5" /></svg></span
+              ><span class="wi-tx">كل عملياتك في مكان واحد</span
+              ><span class="wi-no" aria-hidden="true">٠١</span>
+            </article>
+            <article class="wi" style="--i: 1">
+              <span class="wi-ic"
+                ><svg
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" />
+                  <circle cx="12" cy="12" r="3" /></svg></span
+              ><span class="wi-tx">رؤية أوضح لأداء أعمالك</span
+              ><span class="wi-no" aria-hidden="true">٠٢</span>
+            </article>
+            <article class="wi" style="--i: 2">
+              <span class="wi-ic"
+                ><svg
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M21 8l-9-5-9 5v8l9 5 9-5V8z" />
+                  <path d="M3 8l9 5 9-5M12 13v8" /></svg></span
+              ><span class="wi-tx">إدارة أسهل للمخزون</span
+              ><span class="wi-no" aria-hidden="true">٠٣</span>
+            </article>
+            <article class="wi" style="--i: 3">
+              <span class="wi-ic"
+                ><svg
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="4" y="3" width="16" height="18" rx="2" />
+                  <path d="M8 7h8M8 12h2M14 12h2M8 16h2M14 16h2" /></svg></span
+              ><span class="wi-tx">متابعة دقيقة للحسابات</span
+              ><span class="wi-no" aria-hidden="true">٠٤</span>
+            </article>
+            <article class="wi" style="--i: 4">
+              <span class="wi-ic"
+                ><svg
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z" />
+                  <path d="M9 12l2 2 4-4" /></svg></span
+              ><span class="wi-tx">تحكم كامل في صلاحيات فريقك</span
+              ><span class="wi-no" aria-hidden="true">٠٥</span>
+            </article>
+            <article class="wi" style="--i: 5">
+              <span class="wi-ic"
+                ><svg
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="5" r="2.5" />
+                  <circle cx="5" cy="19" r="2.5" />
+                  <circle cx="19" cy="19" r="2.5" />
+                  <path d="M12 7.5v4M12 11.5L5 16.5M12 11.5l7 5" /></svg></span
+              ><span class="wi-tx">دعم تعدد الفروع</span
+              ><span class="wi-no" aria-hidden="true">٠٦</span>
+            </article>
+            <article class="wi" style="--i: 6">
+              <span class="wi-ic"
+                ><svg
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M4 20V10M10 20V4M16 20v-7M22 20H2" /></svg></span
+              ><span class="wi-tx">تقارير تساعدك على اتخاذ قرارات أفضل</span
+              ><span class="wi-no" aria-hidden="true">٠٧</span>
+            </article>
+            <article class="wi" style="--i: 7">
+              <span class="wi-ic"
+                ><svg
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M8 12l3 3 5-6" /></svg></span
+              ><span class="wi-tx">تقليل العمليات اليدوية والأخطاء</span
+              ><span class="wi-no" aria-hidden="true">٠٨</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="w sec" id="sec-sec">
+          <div>
+            <div class="eb">التقنية والأمان</div>
+            <h2>أساس تقني تعتمد عليه</h2>
+            <p class="sb" style="margin: 0">
+              بياناتك على نظام سحابي، وكل مستخدم يشوف اللي يخصه بس.
+            </p>
+            <div class="shield" aria-hidden="true">
+              <svg viewBox="0 0 120 120">
+                <circle class="rg" cx="60" cy="60" r="30" />
+                <circle class="rg r2" cx="60" cy="60" r="30" />
+                <circle class="rg r3" cx="60" cy="60" r="30" />
+                <path
+                  class="sh"
+                  pathLength="1"
+                  d="M60 22l30 11v23c0 19-12.5 31-30 37-17.5-6-30-18-30-37V33l30-11z"
+                />
+                <path class="ck" pathLength="1" d="M47 59l9 9 18-19" />
+              </svg>
+            </div>
+          </div>
+          <div class="sl">
+            <span class="sl-beam" aria-hidden="true"><i></i></span>
+            <div style="--i: 0">
+              <span class="sl-m"
+                ><span class="sl-ic"
+                  ><svg class="ic-l" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="5" y="11" width="14" height="10" rx="2" />
+                    <path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg
+                  ><svg class="ic-c" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12.5l4.5 4.5L19 7.5" /></svg></span
+                ><span>صلاحيات حسب الدور</span></span
+              ><small>لكل مستخدم</small>
+            </div>
+            <div style="--i: 1">
+              <span class="sl-m"
+                ><span class="sl-ic"
+                  ><svg class="ic-l" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="5" y="11" width="14" height="10" rx="2" />
+                    <path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg
+                  ><svg class="ic-c" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12.5l4.5 4.5L19 7.5" /></svg></span
+                ><span>سجل مراقبة العمليات</span></span
+              ><small>كل تعديل وإضافة</small>
+            </div>
+            <div style="--i: 2">
+              <span class="sl-m"
+                ><span class="sl-ic"
+                  ><svg class="ic-l" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="5" y="11" width="14" height="10" rx="2" />
+                    <path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg
+                  ><svg class="ic-c" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12.5l4.5 4.5L19 7.5" /></svg></span
+                ><span>تشفير وحفظ تلقائي</span></span
+              ><small>للبيانات</small>
+            </div>
+            <div style="--i: 3">
+              <span class="sl-m"
+                ><span class="sl-ic"
+                  ><svg class="ic-l" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="5" y="11" width="14" height="10" rx="2" />
+                    <path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg
+                  ><svg class="ic-c" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12.5l4.5 4.5L19 7.5" /></svg></span
+                ><span>يعمل على كل الأجهزة</span></span
+              ><small>كمبيوتر وتابلت وموبايل</small>
+            </div>
+            <div style="--i: 4">
+              <span class="sl-m"
+                ><span class="sl-ic"
+                  ><svg class="ic-l" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="5" y="11" width="14" height="10" rx="2" />
+                    <path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg
+                  ><svg class="ic-c" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12.5l4.5 4.5L19 7.5" /></svg></span
+                ><span>تنبيهات واتساب</span></span
+              ><small>للتنبيهات المهمة</small>
+            </div>
+            <div style="--i: 5">
+              <span class="sl-m"
+                ><span class="sl-ic"
+                  ><svg class="ic-l" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="5" y="11" width="14" height="10" rx="2" />
+                    <path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg
+                  ><svg class="ic-c" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12.5l4.5 4.5L19 7.5" /></svg></span
+                ><span>متوافق مع الفاتورة الإلكترونية المصرية</span></span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cta">
+        <div class="w cta-outer-wrap">
+          <div class="cta-morph-box" id="cta-morph">
+            <div class="cta-card-bg">
+              <img
+                src="assets/screenshots/dashboard.png"
+                alt="صحصح ERP"
+                class="cta-card-bg-img"
+              />
+              <div class="cta-card-bg-overlay"></div>
+            </div>
+            <div class="cta-content">
+              <div class="cta-tag"><span>◆</span> خطوتك الذكية القادمة</div>
+              <h2>ابدأ إدارة أعمالك بطريقة مختلفة</h2>
+              <p>
+                اجمع تفاصيل شغلك في مكان واحد، وخلي صحصح يساعدك تشوف الصورة
+                كاملة وتتحكم في كل خطوة.
+              </p>
+              <div class="cta-btn-row">
+                <a class="cta-btn-primary" href="#cta">
+                  <span>ابدأ مع صحصح</span>
+                  <span class="cta-arrow">←</span>
+                </a>
+                <a class="cta-btn-call" href="tel:01000000000">
+                  <span class="cta-call-icon">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                      ></path>
+                    </svg>
+                  </span>
+                  <span>تواصل مع فريقنا</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="w fo">
+        <a class="logo" href="#home" aria-label="صحصح - الرئيسية"
+          ><img src="sa7sa7-logo.svg" alt="صحصح" /></a
+        ><span>© ٢٠٢٦ صحصح — منظومة حساباتي ERP</span>
+      </div>
+    </footer>
+    <script>
+      (function () {
+        var $ = function (s) {
+            return document.querySelectorAll(s);
+          },
+          g = function (i) {
+            return document.getElementById(i);
+          },
+          rd = matchMedia("(prefers-reduced-motion:reduce)").matches;
+        var hd = g("hd");
+        function sc() {
+          hd.classList.toggle("sc", scrollY > 20);
+        }
+        addEventListener("scroll", sc, { passive: true });
+        sc();
+        g("mb").onclick = function () {
+          hd.classList.toggle("op");
+        };
+        $("#lk a").forEach(function (a) {
+          a.onclick = function () {
+            hd.classList.remove("op");
+          };
+        });
+        /* ecosystem */
+        var M = [
+            "إدارة المبيعات",
+            "نقطة البيع POS",
+            "إدارة المخزون",
+            "إدارة المشتريات",
+            "إدارة العملاء",
+            "إدارة الموردين",
+            "الحسابات والخزينة",
+            "المحاسبة",
+            "الفروع والمخازن",
+            "الموارد البشرية",
+            "CRM",
+            "التقارير والتحليلات",
+            "المستخدمين والصلاحيات",
+          ],
+          eco = g("eco"),
+          sv = g("sv"),
+          L = [];
+        M.forEach(function (t, i) {
+          var a = (i / M.length) * Math.PI * 2 - Math.PI / 2,
+            x = 50 - 41 * Math.cos(a + Math.PI) * -1,
+            y = 50 + 40 * Math.sin(a);
+          x = 50 + 41 * Math.cos(a);
+          var n = document.createElement("div");
+          n.className = "nd";
+          n.textContent = t;
+          n.style.left = 100 - x + "%";
+          n.style.top = y + "%";
+          eco.appendChild(n);
+          var l = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "line",
+          );
+          l.setAttribute("x1", 50);
+          l.setAttribute("y1", 50);
+          l.setAttribute("x2", 100 - x);
+          l.setAttribute("y2", y);
+          sv.appendChild(l);
+          n.onmouseenter = function () {
+            l.classList.add("h");
+            n.classList.add("h");
+          };
+          n.onmouseleave = function () {
+            l.classList.remove("h");
+            n.classList.remove("h");
+          };
+        });
+        /* AI callout: arrow + note pointing at the Reports & Analytics node */
+        (function () {
+          var hot = [].filter.call(eco.querySelectorAll(".nd"), function (n) {
+            return n.textContent === "التقارير والتحليلات";
+          })[0];
+          if (!hot) return;
+          hot.classList.add("ai-hot");
+          var NS = "http://www.w3.org/2000/svg";
+          var arrow = document.createElementNS(NS, "svg");
+          arrow.setAttribute("class", "ai-arrow");
+          arrow.setAttribute("aria-hidden", "true");
+          var path = document.createElementNS(NS, "path");
+          path.setAttribute("pathLength", "1");
+          var head = document.createElementNS(NS, "polygon");
+          arrow.appendChild(path);
+          arrow.appendChild(head);
+          var note = document.createElement("div");
+          note.className = "ai-note";
+          note.setAttribute("role", "note");
+          note.innerHTML =
+            "<b>✦ تحليل ونتائج أذكى بالـ AI</b><small>قرارات أوضح من بياناتك</small>";
+          eco.appendChild(arrow);
+          eco.appendChild(note);
+          function place() {
+            var W = eco.offsetWidth,
+              H = eco.offsetHeight;
+            if (!W || getComputedStyle(note).display === "none") return;
+            var nx = (parseFloat(hot.style.left) / 100) * W,
+              ny = (parseFloat(hot.style.top) / 100) * H,
+              cx = Math.min(nx + W * 0.045, W - 125),
+              cy = Math.max(16, ny - 140),
+              sx = cx - 8,
+              sy = cy + note.offsetHeight + 6,
+              ex = nx + 4,
+              ey = ny - 24;
+            note.style.left = cx + "px";
+            note.style.top = cy + "px";
+            arrow.setAttribute("viewBox", "0 0 " + W + " " + H);
+            path.setAttribute(
+              "d",
+              "M" +
+                sx +
+                " " +
+                sy +
+                " C" +
+                (sx - 34) +
+                " " +
+                (sy + 40) +
+                " " +
+                (ex + 30) +
+                " " +
+                (ey - 44) +
+                " " +
+                ex +
+                " " +
+                (ey - 7),
+            );
+            head.setAttribute(
+              "points",
+              ex -
+                7 +
+                "," +
+                (ey - 9) +
+                " " +
+                (ex + 7) +
+                "," +
+                (ey - 9) +
+                " " +
+                ex +
+                "," +
+                ey,
+            );
+          }
+          place();
+          if ("IntersectionObserver" in window) {
+            var aio = new IntersectionObserver(
+              function (es) {
+                if (es[0].isIntersecting) {
+                  place();
+                  eco.classList.add("ai-on");
+                  aio.disconnect();
+                }
+              },
+              { threshold: 0.3 },
+            );
+            aio.observe(eco);
+          } else eco.classList.add("ai-on");
+          var rt;
+          addEventListener("resize", function () {
+            clearTimeout(rt);
+            rt = setTimeout(place, 120);
+          });
+          if (document.fonts && document.fonts.ready)
+            document.fonts.ready.then(place);
+        })();
+        /* features */
+        var F = [
+          {
+            tab: "المبيعات",
+            title: "إدارة المبيعات المتكاملة",
+            desc: "من عرض السعر لحد الفاتورة والتحصيل في دورة واحدة متزامنة مع الخزينة والمخزن.",
+            badge: "فوترة إلكترونية معتمدة وإيصالات حرارية",
+            url: "sa7sa7.com/app/sales",
+            img: "assets/screenshots/sales.png",
+            footer: "فواتير A4 / A5 وإيصال كاشير حراري • ربط فوري بالخزينة",
+            points: [
+              "فواتير بيع إلكترونية متوافقة بالكامل مع منظومة الضرائب",
+              "عروض أسعار فورية تتحول لأوامر بيع بنقرة واحدة",
+              "حجز الكميات آلياً وخصم لحظي من المستودع المحدد",
+              "سجل كامل لحسابات العملاء وتاريخ المعاملات والمديونيات",
+              "تسجيل السداد المتعدد (نقداً، تحويل بنكي، فيزا، أو آجل)",
+            ],
+          },
+          {
+            tab: "نقطة البيع",
+            title: "شاشة كاشير فائقة السرعة (POS)",
+            desc: "واجهة تعمل باللمس أو لوحة المفاتيح والباركود، مصممة لإنهاء الطوابير بدون تأخير.",
+            badge: "بيع سريع بالباركود ودعم كامل للورديات",
+            url: "sa7sa7.com/app/pos",
+            img: "assets/screenshots/pos.png",
+            footer: "اختصارات F1-F12 سريعة • تعليق فواتير • طباعة مباشرة",
+            points: [
+              "مسح سريع بالباركود مع دعم الموازين وقارئات الباركود اللاسلكية",
+              "سداد مجزأ في نفس الفاتورة (كاش + فيزا + آجل)",
+              "تعليق واسترجاع الفواتير بضغطة زر لخدمة أكثر من عميل بالتوازي",
+              "إدارة ورديات الكاشير وتقفيل الدرج بمطابقة نقدية دقيقة",
+            ],
+          },
+          {
+            tab: "المخزون",
+            title: "مخزون ذكي تحت السيطرة التامة",
+            desc: "اعرف بضاعتك فين في أي فرع أو مستودع، وتلقَّ تنبيهات فورية قبل نفاد الأصناف.",
+            badge: "جرد بالباركود وتنبيهات إعادة الطلب",
+            url: "sa7sa7.com/app/inventory",
+            img: "assets/screenshots/inventory.png",
+            footer:
+              "دعم الباركود والملصقات • تواريخ صلاحية • وحدات قياس متعددة",
+            points: [
+              "إدارة عدة مخازن ومستودعات مركزية في شاشة موحدة",
+              "جرد دوري سريع بالباركود وتسويات مخزنية دقيقة",
+              "تنبيهات تلقائية ذكية عند وصول الصنف لحد إعادة الطلب",
+              "تحويلات بين الفروع بتأكيد استلام وتسجيل حركات النقل",
+              "أرقام التشغيلات والباتشات وتواريخ الصلاحية للأصناف",
+            ],
+          },
+          {
+            tab: "المالية",
+            title: "إدارة الخزائن والسيولة المحكمة",
+            desc: "تتبع كل قرش يدخل أو يخرج في خزنك وحساباتك البنكية، بقيود ومطابقات لحظية.",
+            badge: "خزائن متعددة وحسابات بنكية موحدة",
+            url: "sa7sa7.com/app/vaults",
+            img: "assets/screenshots/finance.png",
+            footer: "حسابات بنكية وخزن فرعية • قيود محاسبية تلقائية",
+            points: [
+              "إدارة وتتبع أرصدة الخزائن الرئيسية والفرعية وأدراج الكاشير",
+              "ربط الحسابات البنكية وحافظة الشيكات والمدفوعات الإلكترونية",
+              "تسجيل سريع للمصروفات والنثريات وتوزيعها على مراكز التكلفة",
+              "مطابقة يومية آلية بين مبيعات النظام والمبالغ المستلمة فعلياً",
+            ],
+          },
+          {
+            tab: "العملاء والموردين",
+            title: "علاقات واضحة وملفات شاملة",
+            desc: "ملف مالي وتجاري موحد لكل عميل ومورد، مع رقابة صارمة على المديونيات وفترات السداد.",
+            badge: "حدود ائتمان وكشوف حسابات تفصيلية",
+            url: "sa7sa7.com/app/customers",
+            img: "assets/screenshots/customers.png",
+            footer: "تصدير كشوف الحساب PDF/Excel • تنبيه بالديون المتأخرة",
+            points: [
+              "ملف عميل متكامل يجمع تاريخ المشتريات، الدفعات، والمديونيات",
+              "تحديد حدود ائتمانية ذكية ومنع البيع الآجل في حال التجاوز",
+              "كشوف حسابات تفصيلية للطباعة والتصدير والمشاركة بنقرة واحدة",
+              "أوامر شراء ومتابعة استلام بضائع الموردين ومواعيد سداد المستحقات",
+            ],
+          },
+          {
+            tab: "فريق العمل",
+            title: "فريق بصلاحيات محكمة وأمان",
+            desc: "كل موظف يشوف ويعمل اللي يخص دوره بس، مع تسجيل وتتبع كل حركة على النظام.",
+            badge: "أدوار مخصصة وسجل أمان ومراقبة",
+            url: "sa7sa7.com/app/staff",
+            img: "assets/screenshots/staff.png",
+            footer: "عزل كامل لصلاحيات الكاشير عن المحاسب وعن المدير",
+            points: [
+              "صلاحيات مخصصة لكل دور: مدير نظام، مدير فرع، كاشير، محاسب",
+              "تحديد عهدة وخزينة ومخزن محدد لكل موظف لمنع التلاعب",
+              "سجل مراقبة شامل (Audit Log) يسجل من أضاف أو عدّل كل فاتورة",
+              "كشوف حضور ومسيرات رواتب ومكافآت وإجازات متكاملة",
+            ],
+          },
+          {
+            tab: "الفروع",
+            title: "إدارة الفروع المتعددة ككيان واحد",
+            desc: "تحكم في كل فروعك ومستودعاتك ومنافذ البيع من لوحة إدارة مركزية واحدة بأمان وعزل تام.",
+            badge: "ربط سحابي شامل وعزل مالي ومخزني",
+            url: "sa7sa7.com/app/branches",
+            img: "assets/screenshots/branches.png",
+            footer: "فروع متصلة سحابياً • تقارير مقارنة للأداء والربحية",
+            points: [
+              "إدارة عدة فروع ومستودعات ببيانات وحسابات مستقلة أو مجمعة",
+              "تحويلات بضائع فورية بين الفروع مع دورة إرسال واستلام إلكترونية",
+              "مقارنة أداء وربحية كل فرع على حدة لمعرفة أعلى الفروع إنتاجية",
+              "إمكانية تشغيل فروع مختلفة الأنشطة ضمن منظومة واحدة",
+            ],
+          },
+          {
+            tab: "التقارير",
+            title: "تقارير وتحليلات تصنع قراراتك",
+            desc: "لوحات بيانات حية ورؤية لحظية دقيقة لأرباحك ومصروفاتك والأصناف الأكثر مبيعاً.",
+            badge: "لوحات تفاعلية وتقارير أرباح وخسائر",
+            url: "sa7sa7.com/app/reports",
+            img: "assets/screenshots/reports.png",
+            footer: "تصدير فوري Excel/PDF • مؤشرات أداء KPI حية",
+            points: [
+              "تقارير أرباح وخسائر مفصلة لكل صنف، لكل وردية، ولكل فرع",
+              "تحليل الأصناف الأكثر والأقل مبيعاً لمعرفة رواكد المخزون",
+              "ميزان مراجعة وقائمة دخل وتقارير ضريبية جاهزة للمحاسب القانوني",
+              "مؤشرات KPI فورية ورسوم بيانية تفاعلية لنمو الأعمال",
+            ],
+          },
+        ];
+        var tb = g("tabs"),
+          pn = g("pnl");
+
+        window.openLightbox = function (src, title) {
+          var lb = g("screen-lightbox");
+          if (!lb) {
+            lb = document.createElement("div");
+            lb.id = "screen-lightbox";
+            lb.className = "screen-lightbox";
+            lb.innerHTML =
+              '<div class="lightbox-modal">' +
+              '  <div class="lightbox-header">' +
+              '    <div class="lightbox-title">' +
+              '      <span style="color:var(--g);font-weight:700">⚡ شاشة حقيقية من منصة صحصح</span>' +
+              '      <span id="lb-title" style="color:var(--mu);font-size:14px;font-weight:400"></span>' +
+              "    </div>" +
+              '    <button class="lightbox-close" id="lb-close" aria-label="إغلاق">✕</button>' +
+              "  </div>" +
+              '  <div class="lightbox-body">' +
+              '    <img id="lb-img" src="" alt="معاينة الشاشة" />' +
+              "  </div>" +
+              '  <div class="lightbox-footer">' +
+              "    <span>🔒 واجهات نظام صحصح السحابي ERP & POS</span>" +
+              '    <a href="#cta" class="pnl-cta-btn" onclick="closeLightbox()" style="padding:8px 18px;font-size:13px">احجز تجربة النظام كاملة ↗</a>' +
+              "  </div>" +
+              "</div>";
+            document.body.appendChild(lb);
+            g("lb-close").onclick = closeLightbox;
+            lb.onclick = function (e) {
+              if (e.target === lb) closeLightbox();
+            };
+            document.addEventListener("keydown", function (e) {
+              if (e.key === "Escape") closeLightbox();
+            });
+          }
+          g("lb-img").src = src;
+          g("lb-title").textContent = title ? "— " + title : "";
+          lb.classList.add("active");
+          document.body.style.overflow = "hidden";
+        };
+
+        window.closeLightbox = function () {
+          var lb = g("screen-lightbox");
+          if (lb) {
+            lb.classList.remove("active");
+            document.body.style.overflow = "";
+          }
+        };
+
+        function show(i) {
+          $("#tabs button").forEach(function (b, k) {
+            b.classList.toggle("on", k == i);
+          });
+          var d = F[i];
+          pn.innerHTML =
+            '<div class="pnl-info">' +
+            '  <div class="pnl-badge"><span>⚡</span> ' +
+            d.badge +
+            "</div>" +
+            "  <h3>" +
+            d.title +
+            "</h3>" +
+            '  <p class="pnl-desc">' +
+            d.desc +
+            "</p>" +
+            '  <ul class="pnl-list">' +
+            d.points
+              .map(function (pt) {
+                return (
+                  '<li><span class="pnl-check">✓</span><span>' +
+                  pt +
+                  "</span></li>"
+                );
+              })
+              .join("") +
+            "  </ul>" +
+            '  <div class="pnl-actions">' +
+            '    <a href="#cta" class="pnl-cta-btn">احجز ديمو لهذه الشاشة <span>←</span></a>' +
+            '    <button type="button" class="pnl-zoom-btn" onclick="openLightbox(\'' +
+            d.img +
+            "', '" +
+            d.title +
+            "')\"> معاينة مكبرة</button>" +
+            "  </div>" +
+            "</div>" +
+            '<div class="pnl-screen-wrapper">' +
+            '  <div class="screen-device">' +
+            '    <div class="screen-mac-bar">' +
+            '      <div class="mac-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>' +
+            '      <div class="mac-url">' +
+            '        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>' +
+            "        <span>" +
+            d.url +
+            "</span>" +
+            "      </div>" +
+            '      <div class="screen-live-pill"><span class="live-blink"></span><span>نظام حي</span></div>' +
+            "    </div>" +
+            '    <div class="screen-img-container" onclick="openLightbox(\'' +
+            d.img +
+            "', '" +
+            d.title +
+            "')\">" +
+            '      <img src="' +
+            d.img +
+            '" alt="' +
+            d.title +
+            '" class="screen-img" />' +
+            '      <div class="screen-overlay">' +
+            '        <div class="screen-overlay-btn">' +
+            '          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>' +
+            "          <span>اضغط لتكبير الشاشة واستعراض التفاصيل</span>" +
+            "        </div>" +
+            "      </div>" +
+            "    </div>" +
+            '    <div class="screen-footer-badge">' +
+            "      <span> " +
+            d.footer +
+            "</span>" +
+            "      <span>• تحديث فوري</span>" +
+            "    </div>" +
+            "  </div>" +
+            "</div>";
+
+          pn.classList.remove("sw");
+          void pn.offsetWidth;
+          if (!rd) pn.classList.add("sw");
+
+          var pnlTitle = pn.querySelector("h3");
+          var pnlDesc = pn.querySelector(".pnl-desc");
+          if (pnlTitle && window.typewrite) {
+            delete pnlTitle.dataset.twDone;
+            delete pnlTitle.dataset.twActive;
+            window.typewrite(pnlTitle, 22, 40);
+          }
+          if (pnlDesc && window.typewrite) {
+            delete pnlDesc.dataset.twDone;
+            delete pnlDesc.dataset.twActive;
+            window.typewrite(pnlDesc, 14, 240);
+          }
+        }
+        F.forEach(function (d, i) {
+          var b = document.createElement("button");
+          b.textContent = d.tab;
+          b.onclick = function () {
+            show(i);
+          };
+          tb.appendChild(b);
+        });
+        show(0);
+        /* flows */
+        var FL = [
+          {
+            name: "المبيعات",
+            steps: [
+              ["البيع", "تسجيل الفاتورة وخصم الكمية فورًا"],
+              ["المخزون", "تحديث رصيد الأصناف بعد إتمام البيع"],
+              ["المالية", "إثبات الإيراد وحركة الخزينة"],
+              ["المحاسبة", "إنشاء القيد المحاسبي تلقائيًا"],
+              ["التقارير", "تحديث المؤشرات والتقارير لحظيًا"],
+            ],
+          },
+          {
+            name: "المشتريات",
+            steps: [
+              ["المشتريات", "تسجيل طلب الشراء وفاتورة المورد"],
+              ["الموردين", "تحديث رصيد المورد وحسابه"],
+              ["المخزون", "إضافة الكميات المستلمة للمستودع"],
+              ["المدفوعات", "تسجيل المبلغ المستحق أو المدفوع"],
+            ],
+          },
+          {
+            name: "العملاء",
+            steps: [
+              ["العملاء", "فتح الملف والرصيد الخاص بالعميل"],
+              ["المبيعات", "ربط الفواتير بحساب العميل"],
+              ["التحصيل", "تسجيل الدفعات وتحديث الرصيد"],
+              ["حسابات العملاء", "عرض كشف الحساب والمستحقات"],
+            ],
+          },
+          {
+            name: "الموظفين",
+            steps: [
+              ["الموظفين", "إدارة بيانات فريق العمل"],
+              ["الصلاحيات", "تحديد الوصول حسب دور كل موظف"],
+              ["العمليات", "تسجيل ومتابعة نشاط الفروع"],
+              ["الأداء", "مراجعة النتائج ومؤشرات الأداء"],
+            ],
+          },
+        ];
+        var flowFilters = g("flow-filters");
+        var flowRoadmap = g("flow-roadmap");
+        var flowRouteSvg = g("flow-route-svg");
+        var flowRouteBase = g("flow-route-base");
+        var flowRouteActive = g("flow-route-active");
+        var flowVisible = false;
+        var flowResizeObserver;
+        var flowRouteAnimation = null;
+        FL.forEach(function (flow, i) {
+          var button = document.createElement("button");
+          button.type = "button";
+          button.className = "flow-filter";
+          button.textContent = flow.name;
+          button.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+          button.addEventListener("click", function () {
+            renderFlow(i);
+          });
+          flowFilters.appendChild(button);
+        });
+        function drawFlowRoute(animate) {
+          var roadRect = flowRoadmap.getBoundingClientRect();
+          if (!roadRect.width || !roadRect.height) return;
+          if (flowRouteAnimation) {
+            flowRouteAnimation.cancel();
+            flowRouteAnimation = null;
+          }
+          var mobile = window.matchMedia("(max-width: 760px)").matches;
+          flowRoadmap.style.setProperty(
+            "--step-count",
+            flowRoadmap.querySelectorAll(".flow-step").length,
+          );
+          flowRouteSvg.setAttribute(
+            "viewBox",
+            "0 0 " + roadRect.width + " " + roadRect.height,
+          );
+          var points = Array.from(
+            flowRoadmap.querySelectorAll(".flow-step-node"),
+          ).map(function (node) {
+            var rect = node.getBoundingClientRect();
+            return {
+              x: rect.left + rect.width / 2 - roadRect.left,
+              y: rect.top + rect.height / 2 - roadRect.top,
+            };
+          });
+          if (!points.length) return;
+          var path = "M " + points[0].x + " " + points[0].y;
+          for (var i = 1; i < points.length; i++) {
+            var a = points[i - 1],
+              b = points[i];
+            var dx = b.x - a.x,
+              dy = b.y - a.y;
+            if (mobile) {
+              path +=
+                " C " +
+                (a.x + 18) +
+                " " +
+                (a.y + dy * 0.35) +
+                ", " +
+                (b.x - 18) +
+                " " +
+                (b.y - dy * 0.35) +
+                ", " +
+                b.x +
+                " " +
+                b.y;
+            } else {
+              var midX = a.x + dx / 2;
+              var wave = i % 2 ? -22 : 22;
+              path +=
+                " C " +
+                midX +
+                " " +
+                (a.y + wave) +
+                ", " +
+                midX +
+                " " +
+                (b.y + wave) +
+                ", " +
+                b.x +
+                " " +
+                b.y;
+            }
+          }
+          flowRouteBase.setAttribute("d", path);
+          flowRouteActive.setAttribute("d", path);
+          var length = flowRouteActive.getTotalLength();
+          flowRouteActive.style.strokeDasharray = length;
+          flowRouteActive.style.strokeDashoffset = animate
+            ? length
+            : flowVisible
+              ? 0
+              : length;
+          if (
+            animate &&
+            !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+            flowRouteActive.animate
+          ) {
+            flowRouteAnimation = flowRouteActive.animate(
+              [{ strokeDashoffset: length }, { strokeDashoffset: 0 }],
+              {
+                duration: 1450,
+                easing: "cubic-bezier(.22,1,.36,1)",
+                fill: "both",
+              },
+            );
+          }
+        }
+        function playFlow() {
+          flowRoadmap.classList.remove("is-playing");
+          drawFlowRoute(
+            !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+          );
+          void flowRoadmap.offsetWidth;
+          flowRoadmap.classList.add("is-playing");
+        }
+        function renderFlow(index) {
+          var flow = FL[index];
+          flowFilters
+            .querySelectorAll(".flow-filter")
+            .forEach(function (button, i) {
+              button.setAttribute(
+                "aria-pressed",
+                i === index ? "true" : "false",
+              );
+            });
+          flowRoadmap.classList.remove("is-playing");
+          flowRoadmap.querySelectorAll(".flow-step").forEach(function (step) {
+            step.remove();
+          });
+          flowRoadmap.style.setProperty("--step-count", flow.steps.length);
+          flow.steps.forEach(function (step, i) {
+            var item = document.createElement("article");
+            item.className =
+              "flow-step " + (i % 2 === 0 ? "is-top" : "is-bottom");
+            item.style.setProperty("--step-delay", 400 + i * 170 + "ms");
+            item.setAttribute(
+              "aria-label",
+              "الخطوة " + (i + 1) + ": " + step[0],
+            );
+            var card = document.createElement("div");
+            card.className = "flow-step-card";
+            var meta = document.createElement("div");
+            meta.className = "flow-step-meta";
+            var number = document.createElement("span");
+            number.className = "flow-step-index";
+            number.textContent = String(i + 1).padStart(2, "0");
+            var label = document.createElement("span");
+            label.textContent = "خطوة " + (i + 1);
+            meta.append(number, label);
+            var title = document.createElement("h3");
+            title.className = "flow-step-title";
+            title.textContent = step[0];
+            var description = document.createElement("p");
+            description.className = "flow-step-desc";
+            description.textContent = step[1];
+            card.append(meta, title, description);
+            var node = document.createElement("span");
+            node.className = "flow-step-node";
+            node.textContent = String(i + 1).padStart(2, "0");
+            node.setAttribute("aria-hidden", "true");
+            item.append(card, node);
+            flowRoadmap.appendChild(item);
+          });
+          flowRoadmap.setAttribute(
+            "aria-label",
+            "خط سير " +
+              flow.name +
+              ": " +
+              flow.steps
+                .map(function (step) {
+                  return step[0];
+                })
+                .join("، ثم "),
+          );
+          requestAnimationFrame(function () {
+            drawFlowRoute(false);
+            if (flowVisible) playFlow();
+          });
+        }
+        renderFlow(0);
+        if ("IntersectionObserver" in window) {
+          var flowObserver = new IntersectionObserver(
+            function (entries) {
+              if (entries[0].isIntersecting) {
+                flowVisible = true;
+                playFlow();
+                flowObserver.disconnect();
+              }
+            },
+            { threshold: 0.2 },
+          );
+          flowObserver.observe(flowRoadmap);
+        } else {
+          flowVisible = true;
+          playFlow();
+        }
+        if ("ResizeObserver" in window) {
+          flowResizeObserver = new ResizeObserver(function () {
+            drawFlowRoute(false);
+          });
+          flowResizeObserver.observe(flowRoadmap);
+        } else {
+          window.addEventListener("resize", function () {
+            drawFlowRoute(false);
+          });
+        }
+        /* sectors */
+        var S = [
+          {
+            icon: "◧",
+            title: "متاجر التجزئة",
+            desc: "بيع سريع بالباركود وجرد دوري وتنبيه قبل نفاد الأصناف لمنع ضياع المبيعات.",
+            img: "assets/screenshots/pos.png",
+            screenTitle: "نقطة البيع السريعة POS",
+            tags: [
+              "مسح باركود فوري",
+              "طباعة إيصالات حرارية",
+              "جرد سريع للأصناف",
+            ],
+          },
+          {
+            icon: "▦",
+            title: "السوبر ماركت",
+            desc: "واجهة لمس متطورة للطوابير الكبيرة، دعم موازين الباركود ومراقبة حركة الكاشير.",
+            img: "assets/screenshots/inventory.png",
+            screenTitle: "مخزون الأصناف والباركود والورديات",
+            tags: [
+              "دعم موازين الباركود",
+              "تنبيه النواقص الآلي",
+              "تسوية الورديات",
+            ],
+          },
+          {
+            icon: "▤",
+            title: "الجملة",
+            desc: "أوامر بيع فورية، حدود ائتمان ذكية، ومتابعة دقيقة لمديونيات وتحصيلات العملاء.",
+            img: "assets/screenshots/sales.png",
+            screenTitle: "أوامر البيع والفوترة المعتمدة",
+            tags: [
+              "أسعار قطاعي وجملة",
+              "حدود ائتمان العملاء",
+              "فواتير ضريبية A4",
+            ],
+          },
+          {
+            icon: "▣",
+            title: "شركات التوزيع",
+            desc: "مستودعات متعددة، حركة بضائع لحظية بين الفروع، وكشوف حسابات مفصلة لكل عميل.",
+            img: "assets/screenshots/customers.png",
+            screenTitle: "حسابات العملاء والمستودعات",
+            tags: [
+              "تتبع خطوط التوزيع",
+              "كشوف حسابات تفصيلية",
+              "إرسال واستلام بضاعة",
+            ],
+          },
+          {
+            icon: "◉",
+            title: "المطاعم والكافيهات",
+            desc: "نقطة بيع لمس سريعة، طرق دفع متعددة، وتقفيل ورديات ومصروفات نقدية دقيقة.",
+            img: "assets/screenshots/pos.png",
+            screenTitle: "كاشير اللمس وإقفال اليومية EOD",
+            tags: [
+              "طرق دفع كاش وفيزا",
+              "تسجيل مصروفات ونثريات",
+              "إقفال اليومية EOD",
+            ],
+          },
+          {
+            icon: "◈",
+            title: "الشركات التجارية",
+            desc: "دورة محاسبية كاملة من مشتريات وموردين وخزائن وحتى ميزان المراجعة والأرباح.",
+            img: "assets/screenshots/finance.png",
+            screenTitle: "إدارة الخزائن والحسابات والأرباح",
+            tags: [
+              "أرصدة الخزائن والبنوك",
+              "مراكز التكلفة",
+              "أرباح وخسائر لحظية",
+            ],
+          },
+          {
+            icon: "⬡",
+            title: "الأنشطة متعددة الفروع",
+            desc: "كل فروعك ومستودعاتك في شاشة مركزية واحدة مع عزل الصلاحيات وحسابات كل فرع.",
+            img: "assets/screenshots/branches.png",
+            screenTitle: "إدارة مركزية لجميع الفروع",
+            tags: [
+              "عزل حسابات كل فرع",
+              "تحويلات بين الفروع",
+              "مقارنة أداء الفروع",
+            ],
+          },
+        ];
+        var sc2 = g("sc");
+        S.forEach(function (d, i) {
+          var b = document.createElement("button");
+          b.className = "sx" + (i ? "" : " on");
+          b.innerHTML =
+            '<div class="sx-preview">' +
+            '  <div class="sx-preview-bar">' +
+            '    <div class="mac-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>' +
+            '    <span class="sx-screen-title"> ' +
+            d.screenTitle +
+            "</span>" +
+            '    <span class="sx-zoom-badge" onclick="event.stopPropagation(); openLightbox(\'' +
+            d.img +
+            "', '" +
+            d.title +
+            "')\">🔍 تكبير</span>" +
+            "  </div>" +
+            '  <div class="sx-img-box" onclick="event.stopPropagation(); openLightbox(\'' +
+            d.img +
+            "', '" +
+            d.title +
+            "')\">" +
+            '    <img src="' +
+            d.img +
+            '" alt="' +
+            d.title +
+            '" loading="lazy" />' +
+            '    <div class="sx-img-overlay"><span>🔍 اضغط لمعاينة شاشة ' +
+            d.title +
+            "</span></div>" +
+            "  </div>" +
+            "</div>" +
+            '<div class="sx-content">' +
+            '  <div class="sx-head">' +
+            '    <span class="sx-icon">' +
+            d.icon +
+            "</span>" +
+            "    <h3>" +
+            d.title +
+            "</h3>" +
+            "  </div>" +
+            "  <p>" +
+            d.desc +
+            "</p>" +
+            '  <div class="sx-tags">' +
+            d.tags
+              .map(function (t) {
+                return '<span class="sx-tag">✓ ' + t + "</span>";
+              })
+              .join("") +
+            "  </div>" +
+            "</div>";
+          b.onclick = function () {
+            $(".sx").forEach(function (x) {
+              x.classList.remove("on");
+            });
+            b.classList.add("on");
+            var sxH3 = b.querySelector("h3");
+            var sxP = b.querySelector("p");
+            if (sxH3 && window.typewrite) {
+              delete sxH3.dataset.twDone;
+              delete sxH3.dataset.twActive;
+              window.typewrite(sxH3, 20, 50);
+            }
+            if (sxP && window.typewrite) {
+              delete sxP.dataset.twDone;
+              delete sxP.dataset.twActive;
+              window.typewrite(sxP, 13, 200);
+            }
+          };
+          sc2.appendChild(b);
+        });
+        /* reveal */
+        var io = new IntersectionObserver(
+          function (es) {
+            es.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add("in");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.12 },
+        );
+        /* ===== Comprehensive Letter-by-Letter Typewriter Engine ===== */
+        window.typewrite = function (el, speed, delay) {
+          if (
+            !el ||
+            el.dataset.twActive === "true" ||
+            el.dataset.twDone === "true"
+          )
+            return;
+          el.dataset.twActive = "true";
+
+          var charDelay = speed || 18;
+          var startDelay = delay || 0;
+
+          var origH = el.offsetHeight;
+          if (origH > 0) el.style.minHeight = origH + "px";
+
+          var textNodes = [];
+          function collect(n) {
+            if (n.nodeType === Node.TEXT_NODE) {
+              if (n.nodeValue.trim().length > 0) {
+                textNodes.push({ node: n, full: n.nodeValue });
+                n.nodeValue = "";
+              }
+            } else {
+              Array.from(n.childNodes).forEach(collect);
+            }
+          }
+          collect(el);
+
+          if (textNodes.length === 0) {
+            el.style.minHeight = "";
+            el.dataset.twActive = "false";
+            el.dataset.twDone = "true";
+            return;
+          }
+
+          setTimeout(function () {
+            el.classList.add("typing-cursor");
+            var nIdx = 0;
+            var cIdx = 0;
+
+            function tick() {
+              if (nIdx >= textNodes.length) {
+                el.classList.remove("typing-cursor");
+                el.style.minHeight = "";
+                el.dataset.twActive = "false";
+                el.dataset.twDone = "true";
+                return;
+              }
+              cIdx++;
+              textNodes[nIdx].node.nodeValue = textNodes[nIdx].full.slice(
+                0,
+                cIdx,
+              );
+              if (cIdx >= textNodes[nIdx].full.length) {
+                nIdx++;
+                cIdx = 0;
+              }
+              setTimeout(tick, charDelay);
+            }
+            tick();
+          }, startDelay);
+        };
+
+        /* Section Observer for Letter-by-Letter typing when scrolling to each section */
+        var secTypeObserver = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                var sec = entry.target;
+                var eb = sec.querySelector(".eb, .bdg, .cta-tag");
+                if (eb) window.typewrite(eb, 16, 0);
+
+                var h = sec.querySelector("h1, h2");
+                if (h) window.typewrite(h, 22, 120);
+
+                var p = sec.querySelector(".sb, .lead");
+                if (p && !p.closest(".cta-morph-box"))
+                  window.typewrite(p, 12, 340);
+
+                secTypeObserver.unobserve(sec);
+              }
+            });
+          },
+          { threshold: 0.15 },
+        );
+
+        document.querySelectorAll("section, .hero").forEach(function (sec) {
+          secTypeObserver.observe(sec);
+        });
+
+        /* cta morph observer */
+        var ctaBox = g("cta-morph");
+        if (ctaBox) {
+          var ctaObs = new IntersectionObserver(
+            function (es) {
+              es.forEach(function (e) {
+                if (e.isIntersecting) {
+                  ctaBox.classList.add("in");
+                  setTimeout(function () {
+                    var ctaH2 = ctaBox.querySelector("h2");
+                    var ctaP = ctaBox.querySelector("p");
+                    if (ctaH2) {
+                      delete ctaH2.dataset.twDone;
+                      delete ctaH2.dataset.twActive;
+                      window.typewrite(ctaH2, 22, 0);
+                    }
+                    if (ctaP) {
+                      delete ctaP.dataset.twDone;
+                      delete ctaP.dataset.twActive;
+                      window.typewrite(ctaP, 13, 280);
+                    }
+                  }, 1200);
+                }
+              });
+            },
+            { threshold: 0.2 },
+          );
+          ctaObs.observe(ctaBox);
+
+          ctaBox.addEventListener("click", function (e) {
+            if (e.target.closest("a, button")) return;
+            ctaBox.classList.remove("in");
+            void ctaBox.offsetWidth;
+            ctaBox.classList.add("in");
+          });
+        }
+      })();
+    </script>
+    <script>
+      (function () {
+        var selectors = [
+          ".win",
+          ".screen-device",
+          ".sx",
+          ".cta-morph-box",
+        ].join(",");
+        if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches)
+          return;
+        document.querySelectorAll(selectors).forEach(function (card) {
+          card.addEventListener("pointermove", function (event) {
+            var rect = card.getBoundingClientRect();
+            var x = (event.clientX - rect.left) / rect.width;
+            var y = (event.clientY - rect.top) / rect.height;
+            var rotateY = (0.5 - x) * 30;
+            var rotateX = (y - 0.5) * 24;
+            card.style.transform =
+              "perspective(800px) rotateX(" +
+              rotateX +
+              "deg) rotateY(" +
+              rotateY +
+              "deg) scale(1.035)";
+            card.style.boxShadow = "0 34px 70px #000b, 0 0 42px #c5a46d55";
+          });
+          card.addEventListener("pointerleave", function () {
+            card.style.transform = "";
+            card.style.boxShadow = "";
+          });
+        });
+      })();
+    </script>
+    <script>
+      (function () {
+        "use strict";
+        var intro = document.getElementById("site-intro");
+        if (!intro) return;
+        var title = document.getElementById("intro-title");
+        var subtitle = document.getElementById("intro-subtitle");
+        var bar = intro.querySelector(".intro-progress i");
+        var skip = document.getElementById("intro-skip");
+        var reduce =
+          window.matchMedia &&
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var done = false,
+          openTimer = null,
+          removeTimer = null,
+          escapeHandler = null;
+        function typeText(el, text, speed, delay) {
+          if (!el) return;
+          if (reduce) {
+            el.textContent = text;
+            return;
+          }
+          el.textContent = "";
+          window.setTimeout(function () {
+            var i = 0;
+            var timer = window.setInterval(function () {
+              el.textContent = text.slice(0, ++i);
+              if (i >= text.length) window.clearInterval(timer);
+            }, speed);
+          }, delay);
+        }
+        function finish() {
+          if (done) return;
+          done = true;
+          window.clearTimeout(openTimer);
+          intro.classList.add("opening");
+          window.setTimeout(function () {
+            intro.classList.add("leaving");
+          }, 1150);
+          removeTimer = window.setTimeout(function () {
+            if (intro.parentNode) intro.parentNode.removeChild(intro);
+            document.body.classList.add("intro-entered");
+            window.removeEventListener("keydown", escapeHandler);
+
+            var heroBdg = document.querySelector(".hero .bdg");
+            var heroH1 = document.querySelector(".hero h1");
+            var heroLead = document.querySelector(".hero .lead");
+            if (heroBdg && window.typewrite) {
+              delete heroBdg.dataset.twDone;
+              delete heroBdg.dataset.twActive;
+              window.typewrite(heroBdg, 18, 100);
+            }
+            if (heroH1 && window.typewrite) {
+              delete heroH1.dataset.twDone;
+              delete heroH1.dataset.twActive;
+              window.typewrite(heroH1, 24, 300);
+            }
+            if (heroLead && window.typewrite) {
+              delete heroLead.dataset.twDone;
+              delete heroLead.dataset.twActive;
+              window.typewrite(heroLead, 13, 700);
+            }
+          }, 1600);
+        }
+        if (reduce) {
+          intro.remove();
+          document.body.classList.add("intro-entered");
+          return;
+        }
+        typeText(title, "صحصح", 125, 170);
+        typeText(subtitle, "SA7SA7 BUSINESS MANAGEMENT PLATFORM", 24, 650);
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            if (bar) bar.style.width = "100%";
+          });
+        });
+        openTimer = window.setTimeout(finish, 2300);
+        if (skip) skip.addEventListener("click", finish);
+        escapeHandler = function (e) {
+          if (e.key === "Escape") finish();
+        };
+        window.addEventListener("keydown", escapeHandler);
+        window.addEventListener(
+          "pagehide",
+          function () {
+            window.clearTimeout(openTimer);
+            window.clearTimeout(removeTimer);
+          },
+          { once: true },
+        );
+      })();
+    </script>
+    <script>
+      (function () {
+        var wy = document.getElementById("wy");
+        if (!wy) return;
+        if (!("IntersectionObserver" in window)) {
+          wy.classList.add("wy-on");
+          return;
+        }
+        var o = new IntersectionObserver(
+          function (es) {
+            if (es[0].isIntersecting) {
+              wy.classList.add("wy-on");
+              o.disconnect();
+            }
+          },
+          { threshold: 0.2 },
+        );
+        o.observe(wy);
+      })();
+    </script>
+    <script>
+      (function () {
+        var sec = document.getElementById("sec-sec");
+        if (!sec) return;
+        var sl = sec.querySelector(".sl");
+        function lh() {
+          sl.style.setProperty("--lh", sl.offsetHeight + "px");
+        }
+        lh();
+        addEventListener("resize", lh);
+        if (!("IntersectionObserver" in window)) {
+          sec.classList.add("sec-on");
+          return;
+        }
+        var o = new IntersectionObserver(
+          function (es) {
+            if (es[0].isIntersecting) {
+              lh();
+              sec.classList.add("sec-on");
+              o.disconnect();
+            }
+          },
+          { threshold: 0.4 },
+        );
+        o.observe(sec);
+      })();
+    </script>
+
+    <script id="sa-motion-js">
+      (function () {
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        var bar = document.createElement("div");
+        bar.className = "sa-bar";
+        bar.setAttribute("aria-hidden", "true");
+        document.body.appendChild(bar);
+        var secs = [].slice.call(document.querySelectorAll("section"));
+        var io = new IntersectionObserver(
+          function (es) {
+            es.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add("sa-in");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
+        );
+        var skip = /(^|\s)(eb|sb|bdg|rv)(\s|$)/;
+        secs.forEach(function (sec, i) {
+          var hero = sec.classList.contains("hero");
+          /* gold divider that draws itself */
+          if (!hero) {
+            var ln = document.createElement("i");
+            ln.className = "sa-ln";
+            ln.setAttribute("aria-hidden", "true");
+            sec.appendChild(ln);
+            io.observe(ln);
+          }
+          /* drifting ambient glows */
+          [0, 1].forEach(function (k) {
+            var o = document.createElement("i");
+            o.className = "sa-orb";
+            o.setAttribute("aria-hidden", "true");
+            o.style.top = (k ? 58 : 6) + "%";
+            o.style[(i + k) % 2 ? "left" : "right"] = "-4%";
+            o.style.setProperty(
+              "--oc",
+              (i + k) % 3 == 0 ? "#2b4f8a66" : "#c5a46d40",
+            );
+            o.dataset.sp = ((k ? -1 : 1) * (0.16 + 0.06 * k)).toFixed(2);
+            sec.appendChild(o);
+          });
+          if (hero) return;
+          /* staggered reveal for content under the heading */
+          var w = sec.querySelector(".w");
+          if (!w) return;
+          [].slice.call(w.children).forEach(function (c) {
+            if (
+              skip.test(c.className) ||
+              /^H[1-3]$/.test(c.tagName) ||
+              c.classList.contains("sa-ln")
+            )
+              return;
+            var kids = [].slice.call(c.children),
+              d = getComputedStyle(c).display;
+            var targets =
+              kids.length >= 3 &&
+              (d === "grid" || d === "flex") &&
+              c.id !== "eco"
+                ? kids
+                : [c];
+            targets.forEach(function (t, j) {
+              if (t.classList.contains("rv")) return;
+              t.classList.add("sa");
+              t.style.setProperty("--sd", Math.min(j, 8) * 0.09 + "s");
+              io.observe(t);
+            });
+          });
+        });
+        /* hero parallax: the three product windows float at different depths */
+        var map = {
+          ".hero .w1": 0.09,
+          ".hero .w2": -0.07,
+          ".hero .w4": 0.13,
+          ".hero .hg > div:first-child": 0.12,
+        };
+        Object.keys(map).forEach(function (s) {
+          var e = document.querySelector(s);
+          if (e) e.dataset.sp = map[s];
+        });
+        var heroText = document.querySelector(".hero .hg > div:first-child");
+        var sp = [].slice.call(document.querySelectorAll("[data-sp]")),
+          tick = false;
+        function update() {
+          tick = false;
+          var vh = innerHeight,
+            max = document.documentElement.scrollHeight - vh;
+          bar.style.setProperty(
+            "--p",
+            max > 0 ? Math.min(scrollY / max, 1).toFixed(4) : 0,
+          );
+          sp.forEach(function (e) {
+            var r = e.parentNode.getBoundingClientRect();
+            if (r.bottom < -200 || r.top > vh + 200) return;
+            var d = r.top + r.height / 2 - vh / 2;
+            e.style.setProperty(
+              "--py",
+              (-d * parseFloat(e.dataset.sp)).toFixed(1) + "px",
+            );
+          });
+          if (heroText) {
+            var f = Math.min(scrollY / (vh * 0.7), 1);
+            heroText.style.opacity = (1 - f * 0.85).toFixed(3);
+          }
+        }
+        addEventListener(
+          "scroll",
+          function () {
+            if (!tick) {
+              tick = true;
+              requestAnimationFrame(update);
+            }
+          },
+          { passive: true },
+        );
+        addEventListener("resize", update);
+        update();
+      })();
+    </script>
+
+    <script id="sa-motion-2-js">
+      (function () {
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        var fine = matchMedia("(hover: hover) and (pointer: fine)").matches;
+        var hero = document.querySelector(".hero"),
+          cv,
+          cx,
+          W = 0,
+          H = 0,
+          N = [],
+          P = [],
+          run = false,
+          mx = -999,
+          my = -999;
+        var GOLD = "197,164,109",
+          LINK = 125,
+          MR = 170;
+        if (hero) {
+          cv = document.createElement("canvas");
+          cv.className = "sa-net";
+          cv.setAttribute("aria-hidden", "true");
+          hero.insertBefore(cv, hero.firstChild);
+          cx = cv.getContext("2d");
+          var size = function () {
+            var d = Math.min(devicePixelRatio || 1, 2);
+            W = hero.clientWidth;
+            H = hero.clientHeight;
+            cv.width = W * d;
+            cv.height = H * d;
+            cx.setTransform(d, 0, 0, d, 0, 0);
+            var n = Math.round(Math.min(86, (W * H) / 15000));
+            if (W < 760) n = Math.round(n * 0.55);
+            N = [];
+            for (var i = 0; i < n; i++)
+              N.push({
+                x: Math.random() * W,
+                y: Math.random() * H,
+                vx: (Math.random() - 0.5) * 0.3,
+                vy: (Math.random() - 0.5) * 0.3,
+                r: 1 + Math.random() * 1.6,
+              });
+          };
+          size();
+          addEventListener("resize", size);
+          new IntersectionObserver(function (e) {
+            run = e[0].isIntersecting;
+          }).observe(hero);
+          setInterval(function () {
+            if (run && P.length < 5 && N.length > 1) {
+              var a = N[(Math.random() * N.length) | 0],
+                b = N[(Math.random() * N.length) | 0];
+              if (a !== b && Math.hypot(a.x - b.x, a.y - b.y) < LINK * 1.6)
+                P.push({ a: a, b: b, t: 0 });
+            }
+          }, 650);
+        }
+        function draw() {
+          cx.clearRect(0, 0, W, H);
+          var i, j, a, b, dx, dy, d, al;
+          for (i = 0; i < N.length; i++) {
+            a = N[i];
+            a.x += a.vx;
+            a.y += a.vy;
+            if (a.x < 0 || a.x > W) a.vx *= -1;
+            if (a.y < 0 || a.y > H) a.vy *= -1;
+            dx = a.x - mx;
+            dy = a.y - my;
+            d = Math.hypot(dx, dy);
+            if (d < MR && d > 1) {
+              a.x += (dx / d) * (MR - d) * 0.018;
+              a.y += (dy / d) * (MR - d) * 0.018;
+            }
+          }
+          cx.lineWidth = 1;
+          for (i = 0; i < N.length; i++) {
+            a = N[i];
+            for (j = i + 1; j < N.length; j++) {
+              b = N[j];
+              dx = a.x - b.x;
+              dy = a.y - b.y;
+              d = dx * dx + dy * dy;
+              if (d < LINK * LINK) {
+                al = (1 - Math.sqrt(d) / LINK) * 0.3;
+                cx.strokeStyle = "rgba(" + GOLD + "," + al.toFixed(3) + ")";
+                cx.beginPath();
+                cx.moveTo(a.x, a.y);
+                cx.lineTo(b.x, b.y);
+                cx.stroke();
+              }
+            }
+            d = Math.hypot(a.x - mx, a.y - my);
+            if (d < MR) {
+              al = (1 - d / MR) * 0.55;
+              cx.strokeStyle = "rgba(232,211,162," + al.toFixed(3) + ")";
+              cx.beginPath();
+              cx.moveTo(a.x, a.y);
+              cx.lineTo(mx, my);
+              cx.stroke();
+            }
+            cx.fillStyle = "rgba(" + GOLD + ",.85)";
+            cx.beginPath();
+            cx.arc(a.x, a.y, a.r, 0, 6.283);
+            cx.fill();
+          }
+          for (i = P.length - 1; i >= 0; i--) {
+            var k = P[i];
+            k.t += 0.022;
+            if (k.t >= 1) {
+              P.splice(i, 1);
+              continue;
+            }
+            var x = k.a.x + (k.b.x - k.a.x) * k.t,
+              y = k.a.y + (k.b.y - k.a.y) * k.t;
+            var g = cx.createRadialGradient(x, y, 0, x, y, 12);
+            g.addColorStop(0, "rgba(255,244,214,.95)");
+            g.addColorStop(1, "rgba(197,164,109,0)");
+            cx.fillStyle = g;
+            cx.beginPath();
+            cx.arc(x, y, 12, 0, 6.283);
+            cx.fill();
+          }
+        }
+        /* cursor light */
+        var glow,
+          gx = 0,
+          gy = 0,
+          tx = 0,
+          ty = 0,
+          moved = false;
+        if (fine) {
+          glow = document.createElement("div");
+          glow.className = "sa-glow";
+          glow.setAttribute("aria-hidden", "true");
+          document.body.appendChild(glow);
+        }
+        addEventListener(
+          "pointermove",
+          function (e) {
+            tx = e.clientX;
+            ty = e.clientY;
+            if (fine && !moved) {
+              moved = true;
+              gx = tx;
+              gy = ty;
+              glow.classList.add("on");
+            }
+            if (hero) {
+              var r = hero.getBoundingClientRect();
+              mx = e.clientX - r.left;
+              my = e.clientY - r.top;
+            }
+          },
+          { passive: true },
+        );
+        document.addEventListener("pointerleave", function () {
+          mx = my = -999;
+          if (glow) glow.classList.remove("on");
+          moved = false;
+        });
+        /* magnetic buttons */
+        if (fine)
+          document.querySelectorAll(".btn").forEach(function (b) {
+            b.addEventListener("pointermove", function (e) {
+              var r = b.getBoundingClientRect();
+              b.style.translate =
+                ((e.clientX - r.left - r.width / 2) * 0.22).toFixed(1) +
+                "px " +
+                ((e.clientY - r.top - r.height / 2) * 0.3).toFixed(1) +
+                "px";
+            });
+            b.addEventListener("pointerleave", function () {
+              b.style.translate = "";
+            });
+          });
+        (function loop() {
+          if (run && !document.hidden) draw();
+          if (glow && moved) {
+            gx += (tx - gx) * 0.14;
+            gy += (ty - gy) * 0.14;
+            glow.style.transform =
+              "translate(" + gx.toFixed(1) + "px," + gy.toFixed(1) + "px)";
+          }
+          requestAnimationFrame(loop);
+        })();
+      })();
+    </script>
+  </body>
+</html>
